@@ -1,6 +1,7 @@
 .headerWrapper {
     padding: 24px 40px;
     display: flex;
+    grid-column: span 2;
     justify-content: space-between;
 }
 
