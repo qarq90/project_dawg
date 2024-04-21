@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--main-bg);
+    color: var(--main-color);
+    min-height: 100svh;
+}
+
+:root {
+    --main-bg: #151515;
+    --main-color: #FFF;
+    --main-font: 'Inter', sans-serif;
+    --comp-bg-a: #202020;
+    --comp-bg-b: #262626;
+    --comp-bg-c: #373737;
+    --comp-color: #FFF;
+    --comp-hover-col: #797979;
+    --comp-hover-bg: #FFF;
+}
