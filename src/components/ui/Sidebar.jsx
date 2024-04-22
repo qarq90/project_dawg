@@ -1,7 +1,7 @@
 'use client'
 
 import styledSidebar from "@/styles/ui/sidebar.module.css"
-import {sidebarGenres, sidebarNewReleases, sidebarPlatforms, sidebarTop} from "@/lib/sidebarObj";
+import {sidebarBrowse, sidebarGenres, sidebarNewReleases, sidebarPlatforms, sidebarTop} from "@/lib/sidebarObj";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 
@@ -15,7 +15,7 @@ export const Sidebar = () => {
                 <Link className={styledSidebar.linkHeader} href="/">Home</Link>
             </ul>
             <ul className={styledSidebar.sidebarUL}>
-                <Link className={styledSidebar.linkHeader} href="/">Reviews</Link>
+                <Link className={styledSidebar.linkHeader} href="/pages/reviews">Reviews</Link>
             </ul>
             <ul className={styledSidebar.sidebarUL}>
                 <Link className={styledSidebar.linkHeader} href="/">New Releases</Link>
@@ -36,6 +36,24 @@ export const Sidebar = () => {
                 <h1 className={styledSidebar.linkHeader}>Top</h1>
                 {
                     sidebarTop.map((link, index) => (
+                        <Link
+                            className={link.path === currentPage ? styledSidebar.currentLink : styledSidebar.styledSidebarLink}
+                            key={index}
+                            href={link.path}
+                        >
+                            {link.icon}
+                            {link.label}
+                        </Link>
+                    ))
+                }
+            </ul>
+            <ul className={styledSidebar.sidebarUL}>
+                <Link className={styledSidebar.linkHeader} href="/pages/allGames">All Games</Link>
+            </ul>
+            <ul className={styledSidebar.sidebarUL}>
+                <h1 className={styledSidebar.linkHeader}>Browse</h1>
+                {
+                    sidebarBrowse.map((link, index) => (
                         <Link
                             className={link.path === currentPage ? styledSidebar.currentLink : styledSidebar.styledSidebarLink}
                             key={index}

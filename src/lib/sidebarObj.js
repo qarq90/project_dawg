@@ -19,6 +19,14 @@ import {AdventureIcon} from "../../public/icon/AdventureIcon";
 import {PuzzleIcon} from "../../public/icon/PuzzleIcon";
 import {RacingIcon} from "../../public/icon/RacingIcon";
 import {SportsIcon} from "../../public/icon/SportsIcon";
+import {ControllerIcon} from "../../public/icon/ControllerIcon";
+import {DownloadIcon} from "../../public/icon/DownloadIcon";
+import {DirectoryIcon} from "../../public/icon/DirectoryIcon";
+import {GenreIcon} from "../../public/icon/GenreIcon";
+import {UserIcon} from "../../public/icon/UserIcon";
+import {HashtagIcon} from "../../public/icon/HashtagIcon";
+import {DevelopersIcon} from "../../public/icon/DevelopersIcon";
+import {PublisherIcon} from "../../public/icon/PublisherIcon";
 
 export const sidebarNewReleases = [
     {
@@ -73,7 +81,7 @@ export const sidebarPlatforms = [
         path: '/pages/platforms/playstation',
     },
     {
-        label: 'X Box',
+        label: 'XBox',
         icon: <XBoxIcon/>,
         path: '/pages/platforms/xbox',
     },
@@ -91,6 +99,49 @@ export const sidebarPlatforms = [
         label: 'IOS',
         icon: <AppleIcon/>,
         path: '/pages/platforms/apple',
+    },
+]
+
+export const sidebarBrowse = [
+    {
+        label: 'Platforms',
+        icon: <ControllerIcon/>,
+        path: '/pages/browse/platforms',
+    },
+    {
+        label: 'Stores',
+        icon: <DownloadIcon/>,
+        path: '/pages/browse/stores',
+    },
+    {
+        label: 'Collections',
+        icon: <DirectoryIcon/>,
+        path: '/pages/browse/collections',
+    },
+    {
+        label: 'Genres',
+        icon: <GenreIcon/>,
+        path: '/pages/browse/genres',
+    },
+    {
+        label: 'Creators',
+        icon: <UserIcon/>,
+        path: '/pages/browse/creators',
+    },
+    {
+        label: 'Tags',
+        icon: <HashtagIcon/>,
+        path: '/pages/browse/tags',
+    },
+    {
+        label: 'Developers',
+        icon: <DevelopersIcon/>,
+        path: '/pages/browse/developers',
+    },
+    {
+        label: 'Publishers',
+        icon: <PublisherIcon/>,
+        path: '/pages/browse/publishers',
     },
 ]
 
