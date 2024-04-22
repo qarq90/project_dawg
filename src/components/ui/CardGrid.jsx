@@ -43,7 +43,6 @@ const CardGrid = ({url}) => {
                                                 ratTop={card.rating_top}
                                             />
                                         ) : null;
-
                                     })
                                 }
                             </> : <Skeleton/>
