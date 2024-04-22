@@ -1,12 +1,18 @@
 'use client'
 
 import styledCard from "@/styles/ui/card.module.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {WindowsIcon} from "../../../public/icon/WindowsIcon";
+import {PlaystationIcon} from "../../../public/icon/PlaystationIcon";
+import {XBoxIcon} from "../../../public/icon/XBoxIcon";
+import {AndroidIcon} from "../../../public/icon/AndroidIcon";
+import {NintendoIcon} from "../../../public/icon/NintendoIcon";
+import {AppleIcon} from "../../../public/icon/AppleIcon";
 
 export const Card = (props) => {
-    const {genres, platforms, gameName, link, chart, releaseDate, likes, image} = props
+    const {genres, platforms, gameName, link, rat, ratTop, releaseDate, likes, image} = props
     const [fullCard, setFullCard] = useState(false)
 
     return (
@@ -17,16 +23,54 @@ export const Card = (props) => {
         >
             <div className={styledCard.cardTop}>
                 <div className={styledCard.cardImg}>
-                    <Image width={300} height={160} src={image} alt=""/>
+                    <img width={300} height={160} src={image} alt=""/>
                 </div>
             </div>
             <div className={styledCard.cardBottom}>
                 <div className={styledCard.cardIconContainer}>
-                    {platforms?.map((platform, index) => (
-                        <div key={index}>
-                            {platform}
-                        </div>
-                    ))}
+                    {platforms?.map((pl, index) => {
+                        switch (pl.platform.name) {
+                            case "PC":
+                                return (
+                                    <div className={styledCard.cardIcon} key={index}>
+                                        <WindowsIcon key={index}/>
+                                    </div>
+                                )
+                            case "PlayStation":
+                                return (
+                                    <div className={styledCard.cardIcon} key={index}>
+                                        <PlaystationIcon key={index}/>
+                                    </div>
+                                )
+                            case "Xbox":
+                                return (
+                                    <div className={styledCard.cardIcon} key={index}>
+                                        <XBoxIcon key={index}/>
+                                    </div>
+                                )
+                            case "Android":
+                                return (
+                                    <div className={styledCard.cardIcon} key={index}>
+                                        <AndroidIcon key={index}/>
+                                    </div>
+                                )
+                            case "Nintendo":
+                                return (
+                                    <div className={styledCard.cardIcon} key={index}>
+                                        <NintendoIcon key={index}/>
+                                    </div>
+                                )
+                            case "iOS":
+                                return (
+                                    <div className={styledCard.cardIcon} key={index}>
+                                        <AppleIcon key={index}/>
+                                    </div>
+                                )
+
+                            default:
+                                return null
+                        }
+                    })}
                 </div>
                 <div className={styledCard.cardText}>
                     <Link href={link ? link : '/'}>{gameName}</Link>
@@ -52,26 +96,28 @@ export const Card = (props) => {
                     </button>
                 </div>
                 <div className={styledCard.hoveredCard + ' ' + (fullCard ? styledCard.isHovered : '')}>
-                    <div className={styledCard.hoveredCardItem} style={{borderBottom: '1px solid rgba(255, 255, 255, 0.1)'}}>
+                    <div className={styledCard.hoveredCardItem}
+                         style={{borderBottom: '1px solid rgba(255, 255, 255, 0.1)'}}>
                         <div className={styledCard.hoveredCardItemTitle}>Release date:</div>
                         <div>{releaseDate}</div>
                     </div>
-                     <div className={styledCard.hoveredCardItem} style={{borderBottom: '1px solid rgba(255, 255, 255, 0.1)'}}>
+                    <div className={styledCard.hoveredCardItem}
+                         style={{borderBottom: '1px solid rgba(255, 255, 255, 0.1)'}}>
                         <div className={styledCard.hoveredCardItemTitle}>Genres:</div>
                         <div>
                             {
                                 genres?.map((genre, index) => {
                                     if (index === genres.length - 1) {
-                                        return (<Link key={index} href={genre.link}>{genre.title}</Link>)
+                                        return (<Link key={index} href={"/genres/" + genre.slug}>{genre.name}</Link>)
                                     }
-                                    return (<><Link key={index} href={genre.link}>{genre.title}</Link>, &nbsp;</>)
+                                    return (<><Link key={index} href={"/genres/" + genre.slug}>{genre.name}</Link>, &nbsp;</>)
                                 })
                             }
                         </div>
                     </div>
-                     <div className={styledCard.hoveredCardItem}>
-                        <div className={styledCard.hoveredCardItemTitle}>Chart:</div>
-                        <Link href="/">{chart}</Link>
+                    <div className={styledCard.hoveredCardItem}>
+                        <div className={styledCard.hoveredCardItemTitle}>Rating:</div>
+                        <div>{`${rat} / ${ratTop}`}</div>
                     </div>
                 </div>
             </div>

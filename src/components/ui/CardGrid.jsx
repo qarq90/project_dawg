@@ -4,38 +4,20 @@ import styledGlobal from "@/styles/pages/global.module.css";
 import {Card} from "@/components/ui/Card";
 import {useEffect, useState} from "react";
 
-const CardGrid = ({cards}) => {
-    const [A, setA] = useState([])
-    const [B, setB] = useState([])
-    const [C, setC] = useState([])
-    const [D, setD] = useState([])
+const CardGrid = ({url}) => {
+
+    const [cards, setCards] = useState([])
+
+    const getGames = async () => {
+        const res = await fetch(url)
+        const data = await res.json()
+        console.log(data.results[0])
+        setCards(data.results)
+    }
 
     useEffect(() => {
-
-        for (let i = 0; i < cards.length; i++) {
-            if (i % 4 === 0) {
-                setA(prev => [...prev, cards[i]])
-            } else if (i % 4 === 1) {
-                setB(prev => [...prev, cards[i]])
-            } else if (i % 4 === 2) {
-                setC(prev => [...prev, cards[i]])
-            } else if (i % 4 === 3) {
-                setD(prev => [...prev, cards[i]])
-            }
-            console.log(cards[i])
-        }
-
-        document.addEventListener('keyup', (e) => {
-            if (e.key === 'ArrowRight') {
-                console.log("A:", A)
-                console.log("B:", B)
-                console.log("C:", C)
-                console.log("D:", D)
-                console.log("Cards:", cards)
-            }
-        })
-
-    }, [cards])
+        getGames().then(r => console.log("DONE"))
+    }, [])
 
     return (
         <>
@@ -45,13 +27,14 @@ const CardGrid = ({cards}) => {
                         cards.map((card, index) => {
                             if (index % 4 === 0) {
                                 return (
-                                    <Card key={index} gameName={card.gameName}
+                                    <Card key={index} gameName={card.name}
                                           genres={card.genres}
-                                          likes={card.likes}
-                                          image={card.image}
-                                          platforms={card.platforms}
-                                          releaseDate={card.releaseDate}
-                                          chart={card.chart}
+                                          likes={card.ratings_count}
+                                          image={card.background_image}
+                                          platforms={card.parent_platforms}
+                                          releaseDate={card.released}
+                                          rat={card.rating}
+                                          ratTop={card.rating_top}
                                     />
                                 )
                             }
@@ -64,13 +47,14 @@ const CardGrid = ({cards}) => {
                         cards.map((card, index) => {
                             if (index % 4 === 1) {
                                 return (
-                                    <Card key={index} gameName={card.gameName}
+                                    <Card key={index} gameName={card.name}
                                           genres={card.genres}
-                                          likes={card.likes}
-                                          image={card.image}
-                                          platforms={card.platforms}
-                                          releaseDate={card.releaseDate}
-                                          chart={card.chart}
+                                          likes={card.ratings_count}
+                                          image={card.background_image}
+                                          platforms={card.parent_platforms}
+                                          releaseDate={card.released}
+                                          rat={card.rating}
+                                          ratTop={card.rating_top}
                                     />
                                 )
                             }
@@ -83,13 +67,14 @@ const CardGrid = ({cards}) => {
                         cards.map((card, index) => {
                             if (index % 4 === 2) {
                                 return (
-                                    <Card key={index} gameName={card.gameName}
+                                    <Card key={index} gameName={card.name}
                                           genres={card.genres}
-                                          likes={card.likes}
-                                          image={card.image}
-                                          platforms={card.platforms}
-                                          releaseDate={card.releaseDate}
-                                          chart={card.chart}
+                                          likes={card.ratings_count}
+                                          image={card.background_image}
+                                          platforms={card.parent_platforms}
+                                          releaseDate={card.released}
+                                          rat={card.rating}
+                                          ratTop={card.rating_top}
                                     />
                                 )
                             }
@@ -102,13 +87,14 @@ const CardGrid = ({cards}) => {
                         cards.map((card, index) => {
                             if (index % 4 === 3) {
                                 return (
-                                    <Card key={index} gameName={card.gameName}
+                                    <Card key={index} gameName={card.name}
                                           genres={card.genres}
-                                          likes={card.likes}
-                                          image={card.image}
-                                          platforms={card.platforms}
-                                          releaseDate={card.releaseDate}
-                                          chart={card.chart}
+                                          likes={card.ratings_count}
+                                          image={card.background_image}
+                                          platforms={card.parent_platforms}
+                                          releaseDate={card.released}
+                                          rat={card.rating}
+                                          ratTop={card.rating_top}
                                     />
                                 )
                             }

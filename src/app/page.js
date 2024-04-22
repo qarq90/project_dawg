@@ -101,7 +101,7 @@ export default function Home() {
                     <option value="">Linux</option>
                 </select>
             </div>
-            <CardGrid cards={cards}/>
+            <CardGrid url={'https://api.rawg.io/api/games?key=9560492cd5c24a7cbe8ae7e99bb58971'} cards={cards}/>
         </div>
     );
 }
