@@ -10,7 +10,7 @@
 }
 
 .sidebarUL {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     list-style-type: none;
     display: flex;
     flex-direction: column;
