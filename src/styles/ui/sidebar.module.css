@@ -1,6 +1,7 @@
 
 .sidebarContainer {
-    padding-inline: 56px 20px;
+    padding-top: 40px;
+    padding-inline: 40px 20px;
     width: fit-content;
     height: auto;
     display: flex;
@@ -9,7 +10,7 @@
 }
 
 .sidebarUL {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -21,7 +22,7 @@
 }
 
 .linkHeader {
-    font-size: 1.5rem;
+    font-size: 24px;
     color: var(--main-color);
     font-weight: bolder;
 }
@@ -39,12 +40,11 @@
     fill: white;
 }
 
-
 .styledSidebarLink > svg {
     transition: 0.25s all linear;
     margin-right: 0.5rem;
     border-radius: 5px;
-    background-color: #444;
+    background-color: #2d2d2d;
     padding: 0.40rem;
     width: 32px;
     height: 32px;
@@ -53,7 +53,6 @@
 .currentLink {
     color: var(--main-color);
     margin: 0.10rem 0;
-    padding-left: 0.5rem;
     display: flex;
     align-items: center;
 }
@@ -61,7 +60,6 @@
 .styledSidebarLink {
     color: var(--main-color);
     margin: 0.10rem 0;
-    padding-left: 0.5rem;
     display: flex;
     align-items: center;
 }
