@@ -11,6 +11,14 @@ import {XBoxIcon} from "../../public/icon/XBoxIcon";
 import {NintendoIcon} from "../../public/icon/NintendoIcon";
 import {AndroidIcon} from "../../public/icon/AndroidIcon";
 import {AppleIcon} from "../../public/icon/AppleIcon";
+import {ActionIcon} from "../../public/icon/ActionIcon";
+import {StrategyIcon} from "../../public/icon/StrategyIcon";
+import {RPGIcon} from "../../public/icon/RPGIcon";
+import {ShooterIcon} from "../../public/icon/ShooterIcon";
+import {AdventureIcon} from "../../public/icon/AdventureIcon";
+import {PuzzleIcon} from "../../public/icon/PuzzleIcon";
+import {RacingIcon} from "../../public/icon/RacingIcon";
+import {SportsIcon} from "../../public/icon/SportsIcon";
 
 export const sidebarNewReleases = [
     {
@@ -65,7 +73,7 @@ export const sidebarPlatforms = [
         path: '/pages/platforms/playstation',
     },
     {
-        label: 'XBox',
+        label: 'X Box',
         icon: <XBoxIcon/>,
         path: '/pages/platforms/xbox',
     },
@@ -83,5 +91,48 @@ export const sidebarPlatforms = [
         label: 'IOS',
         icon: <AppleIcon/>,
         path: '/pages/platforms/apple',
+    },
+]
+
+export const sidebarGenres = [
+    {
+        label: 'Action',
+        icon: <ActionIcon/>,
+        path: '/pages/genres/action',
+    },
+    {
+        label: 'Strategy',
+        icon: <StrategyIcon/>,
+        path: '/pages/genres/strategy',
+    },
+    {
+        label: 'RPG',
+        icon: <RPGIcon/>,
+        path: '/pages/genres/rpg',
+    },
+    {
+        label: 'Shooter',
+        icon: <ShooterIcon/>,
+        path: '/pages/genres/shooter',
+    },
+    {
+        label: 'Adventure',
+        icon: <AdventureIcon/>,
+        path: '/pages/genres/adventure',
+    },
+    {
+        label: 'Puzzle',
+        icon: <PuzzleIcon/>,
+        path: '/pages/genres/puzzle',
+    },
+    {
+        label: 'Racing',
+        icon: <RacingIcon/>,
+        path: '/pages/genres/racing',
+    },
+    {
+        label: 'Sports',
+        icon: <SportsIcon/>,
+        path: '/pages/genres/sports',
     },
 ]

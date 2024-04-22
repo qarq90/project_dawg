@@ -3,14 +3,14 @@
     padding-top: 40px;
     padding-inline: 40px 20px;
     width: fit-content;
-    height: auto;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .sidebarUL {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     list-style-type: none;
     display: flex;
     flex-direction: column;
