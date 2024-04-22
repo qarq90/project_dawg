@@ -7,9 +7,9 @@ import {XBoxIcon} from "../../public/icon/XBoxIcon";
 export default function Home() {
 
     const platforms = [
-        <XBoxIcon key="1"/>,
+        <WindowsIcon key="1"/>,
         <PlaystationIcon key="2"/>,
-        <WindowsIcon key="3"/>,
+        <XBoxIcon key="3"/>,
     ];
 
     return (
@@ -30,17 +30,17 @@ export default function Home() {
             </div>
             <div className={styledGlobal.gamesGrid}>
                 <div className={styledGlobal.gamesColumn}>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                </div>
-                <div className={styledGlobal.gamesColumn}>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
+                    <Card gameName={"Vampire: The Masquerade - Bloodlines 2"} platforms={platforms}/>
                     <Card gameName={"GTA5"} platforms={platforms}/>
                     <Card gameName={"GTA5"} platforms={platforms}/>
                 </div>
                 <div className={styledGlobal.gamesColumn}>
                     <Card gameName={"GTA5"} platforms={platforms}/>
+                    <Card gameName={"GTA5"} platforms={platforms}/>
+                    <Card gameName={"GTA5"} platforms={platforms}/>
+                </div>
+                <div className={styledGlobal.gamesColumn}>
+                    <Card gameName={"Suicide Squad: Kill The Justice League"} platforms={platforms}/>
                     <Card gameName={"GTA5"} platforms={platforms}/>
                     <Card gameName={"GTA5"} platforms={platforms}/>
                 </div>
