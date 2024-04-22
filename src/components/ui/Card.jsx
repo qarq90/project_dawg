@@ -3,8 +3,10 @@
 import styledCard from "@/styles/ui/card.module.css"
 import {useState} from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Card = (props) => {
+    const {genres, platforms, gameName, link, chart, releaseDate, likes, image} = props
     const [fullCard, setFullCard] = useState(false)
 
     return (
@@ -14,21 +16,20 @@ export const Card = (props) => {
             onMouseLeave={() => setFullCard(false)}
         >
             <div className={styledCard.cardTop}>
-                <div className={styledCard.cardVid}>
-                    {/*  Game Video Goes Here  */}
-                    <img src="/img/x.jpg" alt=""/>
+                <div className={styledCard.cardImg}>
+                    <Image width={300} height={160} src={image} alt=""/>
                 </div>
             </div>
             <div className={styledCard.cardBottom}>
                 <div className={styledCard.cardIconContainer}>
-                    {props.platforms.map((platform, index) => (
+                    {platforms?.map((platform, index) => (
                         <div key={index}>
                             {platform}
                         </div>
                     ))}
                 </div>
                 <div className={styledCard.cardText}>
-                    <a href={props.link}>{props.gameName}</a>
+                    <Link href={link ? link : '/'}>{gameName}</Link>
                 </div>
                 <div className={styledCard.btnGroup}>
                     <button>
@@ -40,7 +41,7 @@ export const Card = (props) => {
                                 <rect width="3" height="12" x="4.5" rx=".75" transform="rotate(-90 6 6)"></rect>
                             </g>
                         </svg>
-                        833
+                        {likes}
                     </button>
                     <button style={{opacity: fullCard ? 1 : 0}}>
                         <svg className="SVGInline-svg game-card-button__icon-svg game-card-button__icon_20-svg"
@@ -53,17 +54,24 @@ export const Card = (props) => {
                 <div className={styledCard.hoveredCard + ' ' + (fullCard ? styledCard.isHovered : '')}>
                     <div className={styledCard.hoveredCardItem} style={{borderBottom: '1px solid rgba(255, 255, 255, 0.1)'}}>
                         <div className={styledCard.hoveredCardItemTitle}>Release date:</div>
-                        <div>Nov 22, 2024</div>
+                        <div>{releaseDate}</div>
                     </div>
                      <div className={styledCard.hoveredCardItem} style={{borderBottom: '1px solid rgba(255, 255, 255, 0.1)'}}>
                         <div className={styledCard.hoveredCardItemTitle}>Genres:</div>
                         <div>
-
+                            {
+                                genres?.map((genre, index) => {
+                                    if (index === genres.length - 1) {
+                                        return (<Link key={index} href={genre.link}>{genre.title}</Link>)
+                                    }
+                                    return (<><Link key={index} href={genre.link}>{genre.title}</Link>, &nbsp;</>)
+                                })
+                            }
                         </div>
                     </div>
                      <div className={styledCard.hoveredCardItem}>
                         <div className={styledCard.hoveredCardItemTitle}>Chart:</div>
-                        <a href="">#1 Top 2024</a>
+                        <Link href="/">{chart}</Link>
                     </div>
                 </div>
             </div>

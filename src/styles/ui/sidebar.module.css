@@ -10,7 +10,7 @@
 }
 
 .sidebarUL {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
 }
 
 .linkHeader {
-    font-size: 24px;
+    font-size: 23px;
     color: var(--main-color);
     font-weight: 700;
     font-family: -apple-system, sans-serif;

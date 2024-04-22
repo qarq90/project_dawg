@@ -19,7 +19,9 @@
     outline: none;
     width: auto;
     min-width: 150px;
-    padding: 10px 16px;
+    padding-block: 10px;
+    padding-left: 10px;
+    box-shadow: 8px 0 0 var(--comp-bg-b);
     background-color: var(--comp-bg-b);
     border-radius: 8px;
     font-size: 14px;

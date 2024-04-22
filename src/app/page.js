@@ -3,6 +3,7 @@ import {Card} from "@/components/ui/Card";
 import {WindowsIcon} from "../../public/icon/WindowsIcon";
 import {PlaystationIcon} from "../../public/icon/PlaystationIcon";
 import {XBoxIcon} from "../../public/icon/XBoxIcon";
+import CardGrid from "@/components/ui/CardGrid";
 
 export default function Home() {
 
@@ -12,12 +13,84 @@ export default function Home() {
         <XBoxIcon key="3"/>,
     ];
 
+    const genres = [
+        {
+            title: "Action",
+            link: '/genres/action'
+        },
+        {
+            title: "RPG",
+            link: '/genres/rpg'
+        },
+        {
+            title: "Strategy",
+            link: '/genres/strategy'
+        }
+    ]
+
+    let cards = [
+        {
+            gameName: "Red Dead Redemption 2",
+            genres: genres,
+            likes: '1,200',
+            image: "/img/u.jpg",
+            platforms: platforms,
+            releaseDate: "Apr 22, 2024",
+            chart: "#1 Top 2024"
+        },
+        {
+            gameName: "Vampire: The Masquerade - Bloodlines 2",
+            genres: genres,
+            likes: 100,
+            image: "/img/x.jpg",
+            platforms: platforms,
+            releaseDate: "Apr 22, 2024",
+            chart: "#1 Top 2024"
+        },
+        {
+            gameName: "S.T.A.L.K.E.R. 2: Heart of Chernobyl",
+            genres: genres,
+            likes: '1,200',
+            image: "/img/y.jpg",
+            platforms: platforms,
+            releaseDate: "Apr 22, 2024",
+            chart: "#1 Top 2024"
+        },
+        {
+            gameName: "Senua's Saga: Hellblade II",
+            genres: genres,
+            likes: '1,200',
+            image: "/img/z.jpg",
+            platforms: platforms,
+            releaseDate: "Apr 22, 2024",
+            chart: "#1 Top 2024"
+        },
+        {
+            gameName: "Hollow Knight: Silksong",
+            genres: genres,
+            likes: '1,200',
+            image: "/img/w.jpg",
+            platforms: platforms,
+            releaseDate: "Apr 22, 2024",
+            chart: "#1 Top 2024"
+        },
+        {
+            gameName: "Just Cause 3",
+            genres: genres,
+            likes: '1,200',
+            image: "/img/v.jpg",
+            platforms: platforms,
+            releaseDate: "Apr 22, 2024",
+            chart: "#1 Top 2024"
+        }
+    ];
+
     return (
         <div className={styledGlobal.container}>
             <h1>Home</h1>
             <div className={styledGlobal.dropdownContainer}>
                 <select>
-                    <option value="" disabled selected>Platforms</option>
+                    <option value="">Platforms</option>
                     <option value="">PC</option>
                     <option value="">Playstation</option>
                     <option value="">XBox</option>
@@ -28,28 +101,7 @@ export default function Home() {
                     <option value="">Linux</option>
                 </select>
             </div>
-            <div className={styledGlobal.gamesGrid}>
-                <div className={styledGlobal.gamesColumn}>
-                    <Card gameName={"Vampire: The Masquerade - Bloodlines 2"} platforms={platforms}/>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                </div>
-                <div className={styledGlobal.gamesColumn}>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                </div>
-                <div className={styledGlobal.gamesColumn}>
-                    <Card gameName={"Suicide Squad: Kill The Justice League"} platforms={platforms}/>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                </div>
-                <div className={styledGlobal.gamesColumn}>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                    <Card gameName={"GTA5"} platforms={platforms}/>
-                </div>
-            </div>
+            <CardGrid cards={cards}/>
         </div>
     );
 }
