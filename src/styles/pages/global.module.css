@@ -1,4 +1,11 @@
+.container {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
 
-.container{
-    padding: 5rem;
+.heading1 {
+    font-size: 72px;
+    line-height: 74px;
+    font-weight: 700;
 }
