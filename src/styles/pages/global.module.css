@@ -8,3 +8,38 @@
     line-height: 74px;
     font-weight: 700;
 }
+
+.dropdownContainer {
+    margin-top: 1rem;
+}
+
+.dropdownContainer > select {
+    border: none;
+    outline: none;
+    width: auto;
+    min-width: 150px;
+    padding: 10px 16px;
+    background-color: var(--comp-bg-b);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--main-color);
+}
+
+.dropdownContainer > select:hover {
+    cursor: pointer;
+}
+
+.dropdownContainer > select > option:hover {
+    cursor: pointer;
+}
+
+.gamesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+}
+
+.gamesColumn {
+    display: flex;
+    flex-direction: column;
+}

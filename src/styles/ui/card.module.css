@@ -1,0 +1,52 @@
+.card {
+    margin: 1rem 1rem 1rem 0;
+    width: 17.328rem;
+    height: 22rem;
+    cursor: pointer;
+    background-color: var(--comp-bg-a);
+    border-radius: 12px;
+    transition: 0.25s all linear;
+}
+
+.card:hover {
+    z-index: 100000;
+    height: 27rem;
+    scale: 1.01;
+}
+
+.cardVid {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    width: auto;
+    height: 10rem;
+    background-color: white;
+}
+
+.cardBottom {
+
+}
+
+.cardIconContainer {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.cardIconContainer > div > svg {
+    padding-left: 0.5rem;
+    width: 1.5rem;
+    object-fit: cover;
+    height: 1.5rem;
+}
+
+.cardText {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.hoveredCard {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
