@@ -15,14 +15,13 @@ export default function RootLayout({children}) {
     return (
         <html lang="en">
         <head>
-            <title>an_over_the_top_todo_list</title>
+            <title>DAWG</title>
             <link rel="icon" href="favicon.ico" sizes="any"/>
         </head>
         <body className={inter.className}>
-        <div className="layout">
-            <IsSidebarRequired/>
+        <IsSidebarRequired>
             {children}
-        </div>
+        </IsSidebarRequired>
         </body>
         </html>
     );

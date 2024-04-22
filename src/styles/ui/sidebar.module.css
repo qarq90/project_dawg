@@ -24,7 +24,8 @@
 .linkHeader {
     font-size: 24px;
     color: var(--main-color);
-    font-weight: bolder;
+    font-weight: 700;
+    font-family: -apple-system, sans-serif;
 }
 
 .styledSidebarLink:hover > svg,
