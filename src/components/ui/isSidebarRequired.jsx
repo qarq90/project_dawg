@@ -9,7 +9,7 @@ const IsSidebarRequired = ({children}) => {
     const isAuth = pathname.includes("/auth/")
     return (
         <div className="layout">
-            <Nav />
+            <Nav/>
             {
                 isAuth ? <></> : <Sidebar/>
             }

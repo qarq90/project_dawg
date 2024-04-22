@@ -1,8 +1,7 @@
 'use client'
 
 import styledCard from "@/styles/ui/card.module.css"
-import {useEffect, useState} from "react";
-import Image from "next/image";
+import {useState} from "react";
 import Link from "next/link";
 import {WindowsIcon} from "../../../public/icon/WindowsIcon";
 import {PlaystationIcon} from "../../../public/icon/PlaystationIcon";
@@ -12,7 +11,19 @@ import {NintendoIcon} from "../../../public/icon/NintendoIcon";
 import {AppleIcon} from "../../../public/icon/AppleIcon";
 
 export const Card = (props) => {
-    const {genres, platforms, gameName, link, rat, ratTop, releaseDate, likes, image} = props
+
+    const {
+        genres,
+        platforms,
+        gameName,
+        link,
+        rat,
+        ratTop,
+        releaseDate,
+        likes,
+        image
+    } = props
+
     const [fullCard, setFullCard] = useState(false)
 
     return (
@@ -110,7 +121,8 @@ export const Card = (props) => {
                                     if (index === genres.length - 1) {
                                         return (<Link key={index} href={"/genres/" + genre.slug}>{genre.name}</Link>)
                                     }
-                                    return (<><Link key={index} href={"/genres/" + genre.slug}>{genre.name}</Link>, &nbsp;</>)
+                                    return (<><Link key={index}
+                                                    href={"/genres/" + genre.slug}>{genre.name}</Link>, &nbsp;</>)
                                 })
                             }
                         </div>

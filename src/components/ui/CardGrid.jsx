@@ -3,6 +3,7 @@
 import styledGlobal from "@/styles/pages/global.module.css";
 import {Card} from "@/components/ui/Card";
 import {useEffect, useState} from "react";
+import {Skeleton} from "@/components/ui/Skeleton";
 
 const CardGrid = ({url}) => {
 
@@ -16,90 +17,111 @@ const CardGrid = ({url}) => {
     }
 
     useEffect(() => {
-        getGames().then(r => console.log("DONE"))
-    }, [])
+        getGames().then(r => console.log("Games Fetched"));
+    }, []);
+
 
     return (
         <>
             <div className={styledGlobal.gamesGrid}>
                 <div className={styledGlobal.gamesColumn}>
                     {
-                        cards.map((card, index) => {
-                            if (index % 4 === 0) {
-                                return (
-                                    <Card key={index} gameName={card.name}
-                                          genres={card.genres}
-                                          likes={card.ratings_count}
-                                          image={card.background_image}
-                                          platforms={card.parent_platforms}
-                                          releaseDate={card.released}
-                                          rat={card.rating}
-                                          ratTop={card.rating_top}
-                                    />
-                                )
-                            }
-                            return null
-                        })
+                        cards.length !== 0 ?
+                            <>
+                                {
+                                    cards.map((card, index) => {
+                                        return index % 4 === 0 ? (
+                                            <Card
+                                                key={index}
+                                                gameName={card.name}
+                                                genres={card.genres}
+                                                likes={card.ratings_count}
+                                                image={card.background_image}
+                                                platforms={card.parent_platforms}
+                                                releaseDate={card.released}
+                                                rat={card.rating}
+                                                ratTop={card.rating_top}
+                                            />
+                                        ) : null;
+
+                                    })
+                                }
+                            </> : <Skeleton/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
                     {
-                        cards.map((card, index) => {
-                            if (index % 4 === 1) {
-                                return (
-                                    <Card key={index} gameName={card.name}
-                                          genres={card.genres}
-                                          likes={card.ratings_count}
-                                          image={card.background_image}
-                                          platforms={card.parent_platforms}
-                                          releaseDate={card.released}
-                                          rat={card.rating}
-                                          ratTop={card.rating_top}
-                                    />
-                                )
-                            }
-                            return null
-                        })
+                        cards.length !== 0 ?
+                            <>
+                                {
+                                    cards.map((card, index) => {
+                                        return index % 4 === 1 ? (
+                                            <Card
+                                                key={index}
+                                                gameName={card.name}
+                                                genres={card.genres}
+                                                likes={card.ratings_count}
+                                                image={card.background_image}
+                                                platforms={card.parent_platforms}
+                                                releaseDate={card.released}
+                                                rat={card.rating}
+                                                ratTop={card.rating_top}
+                                            />
+                                        ) : null;
+
+                                    })
+                                }
+                            </> : <Skeleton/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
                     {
-                        cards.map((card, index) => {
-                            if (index % 4 === 2) {
-                                return (
-                                    <Card key={index} gameName={card.name}
-                                          genres={card.genres}
-                                          likes={card.ratings_count}
-                                          image={card.background_image}
-                                          platforms={card.parent_platforms}
-                                          releaseDate={card.released}
-                                          rat={card.rating}
-                                          ratTop={card.rating_top}
-                                    />
-                                )
-                            }
-                            return null
-                        })
+                        cards.length !== 0 ?
+                            <>
+                                {
+                                    cards.map((card, index) => {
+                                        return index % 4 === 2 ? (
+                                            <Card
+                                                key={index}
+                                                gameName={card.name}
+                                                genres={card.genres}
+                                                likes={card.ratings_count}
+                                                image={card.background_image}
+                                                platforms={card.parent_platforms}
+                                                releaseDate={card.released}
+                                                rat={card.rating}
+                                                ratTop={card.rating_top}
+                                            />
+                                        ) : null;
+
+                                    })
+                                }
+                            </> : <Skeleton/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
                     {
-                        cards.map((card, index) => {
-                            if (index % 4 === 3) {
-                                return (
-                                    <Card key={index} gameName={card.name}
-                                          genres={card.genres}
-                                          likes={card.ratings_count}
-                                          image={card.background_image}
-                                          platforms={card.parent_platforms}
-                                          releaseDate={card.released}
-                                          rat={card.rating}
-                                          ratTop={card.rating_top}
-                                    />
-                                )
-                            }
-                            return null
-                        })
+                        cards.length !== 0 ?
+                            <>
+                                {
+                                    cards.map((card, index) => {
+                                        return index % 4 === 3 ? (
+                                            <Card
+                                                key={index}
+                                                gameName={card.name}
+                                                genres={card.genres}
+                                                likes={card.ratings_count}
+                                                image={card.background_image}
+                                                platforms={card.parent_platforms}
+                                                releaseDate={card.released}
+                                                rat={card.rating}
+                                                ratTop={card.rating_top}
+                                            />
+                                        ) : null;
+
+                                    })
+                                }
+                            </> : <Skeleton/>
                     }
                 </div>
             </div>
