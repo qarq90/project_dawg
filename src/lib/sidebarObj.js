@@ -40,11 +40,6 @@ export const sidebarNewReleases = [
         path: '/pages/releases/trending',
     },
     {
-        label: 'Upcoming',
-        icon: <UpcomingIcon/>,
-        path: '/pages/releases/upcoming',
-    },
-    {
         label: 'Release Calendar',
         icon: <CalendarIcon/>,
         path: '/pages/releases/calendar',
@@ -58,12 +53,12 @@ export const sidebarTop = [
         path: '/pages/top/year',
     },
     {
-        label: 'Popular in 2024',
+        label: 'Popular in 2023',
         icon: <BarChartIcon/>,
         path: '/pages/top/popular',
     },
     {
-        label: 'All time top 250',
+        label: 'All time top 20',
         icon: <CrownIcon/>,
         path: '/pages/top/allTime',
     },
@@ -112,11 +107,6 @@ export const sidebarBrowse = [
         label: 'Stores',
         icon: <DownloadIcon/>,
         path: '/pages/browse/stores',
-    },
-    {
-        label: 'Collections',
-        icon: <DirectoryIcon/>,
-        path: '/pages/browse/collections',
     },
     {
         label: 'Genres',

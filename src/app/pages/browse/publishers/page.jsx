@@ -1,5 +1,5 @@
 import styledGlobal from "@/styles/pages/global.module.css";
-import CardGridPublishers from "@/components/pages/browse/CardGridPublishers";
+import CardGridX from "@/components/ui/CardGridX.jsx";
 
 export default function Publishers() {
     return (
@@ -18,7 +18,7 @@ export default function Publishers() {
                     <option value="">Linux</option>
                 </select>
             </div>
-            <CardGridPublishers
+            <CardGridX
                 url={'https://api.rawg.io/api/publishers?key=9560492cd5c24a7cbe8ae7e99bb58971'}
             />
         </div>

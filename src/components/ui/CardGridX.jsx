@@ -1,19 +1,23 @@
 "use client"
 
 import styledGlobal from "@/styles/pages/global.module.css";
-import {Card} from "@/components/ui/Card";
 import {useEffect, useState} from "react";
 import {Skeleton} from "@/components/ui/Skeleton";
+import {CardX} from "@/components/ui/CardX.jsx";
 
-const CardGridDevelopers = ({url,filter}) => {
+const CardGridX = ({url}) => {
 
     const [cards, setCards] = useState([])
 
     const getGames = async () => {
         const res = await fetch(url)
         const data = await res.json()
-        console.log(data.results[0])
-        console.log(url)
+        console.clear()
+        const tez = data.results[0]
+        for (const key in tez) {
+            console.log("Key: " + key);
+        }
+        console.log(tez.games)
         setCards(data.results)
     }
 
@@ -31,20 +35,18 @@ const CardGridDevelopers = ({url,filter}) => {
                             <>
                                 {
                                     cards.map((card, index) => {
+                                        const image = card.background_image || card.image || card.image_background
+
                                         return index % 4 === 0 ? (
-                                            <Card
+                                            <CardX
                                                 key={index}
-                                                gameName={card.name}
-                                                genres={card.genres}
-                                                likes={card.ratings_count}
-                                                image={card.image_background}
-                                                platforms={card.parent_platforms}
-                                                releaseDate={card.released}
-                                                rat={card.rating}
-                                                ratTop={card.rating_top}
+                                                image={image}
+                                                slug={card.slug}
+                                                name={card.name}
+                                                items={card.games}
+                                                count={card.games_count}
                                             />
                                         ) : null;
-
                                     })
                                 }
                             </> : <Skeleton/>
@@ -56,17 +58,16 @@ const CardGridDevelopers = ({url,filter}) => {
                             <>
                                 {
                                     cards.map((card, index) => {
+                                        const image = card.background_image || card.image || card.image_background
+
                                         return index % 4 === 1 ? (
-                                            <Card
+                                           <CardX
                                                 key={index}
-                                                gameName={card.name}
-                                                genres={card.genres}
-                                                likes={card.ratings_count}
-                                                image={card.image_background}
-                                                platforms={card.parent_platforms}
-                                                releaseDate={card.released}
-                                                rat={card.rating}
-                                                ratTop={card.rating_top}
+                                                image={image}
+                                                slug={card.slug}
+                                                name={card.name}
+                                                items={card.games}
+                                                count={card.games_count}
                                             />
                                         ) : null;
 
@@ -81,17 +82,16 @@ const CardGridDevelopers = ({url,filter}) => {
                             <>
                                 {
                                     cards.map((card, index) => {
+                                        const image = card.background_image || card.image || card.image_background
+
                                         return index % 4 === 2 ? (
-                                            <Card
+                                            <CardX
                                                 key={index}
-                                                gameName={card.name}
-                                                genres={card.genres}
-                                                likes={card.ratings_count}
-                                                image={card.image_background}
-                                                platforms={card.parent_platforms}
-                                                releaseDate={card.released}
-                                                rat={card.rating}
-                                                ratTop={card.rating_top}
+                                                image={image}
+                                                slug={card.slug}
+                                                name={card.name}
+                                                items={card.games}
+                                                count={card.games_count}
                                             />
                                         ) : null;
 
@@ -106,17 +106,16 @@ const CardGridDevelopers = ({url,filter}) => {
                             <>
                                 {
                                     cards.map((card, index) => {
+                                        const image = card.background_image || card.image || card.image_background
+
                                         return index % 4 === 3 ? (
-                                            <Card
+                                            <CardX
                                                 key={index}
-                                                gameName={card.name}
-                                                genres={card.genres}
-                                                likes={card.ratings_count}
-                                                image={card.image_background}
-                                                platforms={card.parent_platforms}
-                                                releaseDate={card.released}
-                                                rat={card.rating}
-                                                ratTop={card.rating_top}
+                                                image={image}
+                                                slug={card.slug}
+                                                name={card.name}
+                                                items={card.games}
+                                                count={card.games_count}
                                             />
                                         ) : null;
 
@@ -129,4 +128,4 @@ const CardGridDevelopers = ({url,filter}) => {
         </>
     )
 }
-export default CardGridDevelopers
+export default CardGridX

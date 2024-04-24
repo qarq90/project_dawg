@@ -47,3 +47,18 @@
     flex-direction: column;
 }
 
+.calendarLinks {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.calendarLink {
+    color: var(--main-color);
+    opacity: .5;
+}
+
+.calendarLinkActive {
+    opacity: 1;
+}
+

@@ -1,5 +1,5 @@
 import styledGlobal from "@/styles/pages/global.module.css";
-import CardGridTags from "@/components/pages/browse/CardGridTags";
+import CardGridX from "@/components/ui/CardGridX.jsx";
 
 export default function Tags() {
     return (
@@ -18,7 +18,7 @@ export default function Tags() {
                     <option value="">Linux</option>
                 </select>
             </div>
-            <CardGridTags
+            <CardGridX
                 url={'https://api.rawg.io/api/tags?key=9560492cd5c24a7cbe8ae7e99bb58971'}
             />
         </div>

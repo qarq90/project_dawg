@@ -12,6 +12,7 @@ const CardGrid = ({url}) => {
     const getGames = async () => {
         const res = await fetch(url)
         const data = await res.json()
+        console.log(url)
         console.log(data.results[0])
         setCards(data.results)
     }
@@ -20,6 +21,11 @@ const CardGrid = ({url}) => {
         getGames().then(r => console.log("Games Fetched"));
     }, []);
 
+    function formatDate(inputDate) {
+        const date = new Date(inputDate);
+        const options = {month: 'short', day: '2-digit', year: 'numeric'};
+        return date.toLocaleDateString('en-US', options);
+    }
 
     return (
         <>
@@ -38,7 +44,7 @@ const CardGrid = ({url}) => {
                                                 likes={card.ratings_count}
                                                 image={card.background_image}
                                                 platforms={card.parent_platforms}
-                                                releaseDate={card.released}
+                                                releaseDate={formatDate(card.released) || '-'}
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
@@ -62,7 +68,7 @@ const CardGrid = ({url}) => {
                                                 likes={card.ratings_count}
                                                 image={card.background_image}
                                                 platforms={card.parent_platforms}
-                                                releaseDate={card.released}
+                                                releaseDate={formatDate(card.released) || '-'}
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
@@ -87,7 +93,7 @@ const CardGrid = ({url}) => {
                                                 likes={card.ratings_count}
                                                 image={card.background_image}
                                                 platforms={card.parent_platforms}
-                                                releaseDate={card.released}
+                                                releaseDate={formatDate(card.released) || '-'}
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
@@ -112,7 +118,7 @@ const CardGrid = ({url}) => {
                                                 likes={card.ratings_count}
                                                 image={card.background_image}
                                                 platforms={card.parent_platforms}
-                                                releaseDate={card.released}
+                                                releaseDate={formatDate(card.released) || '-'}
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />

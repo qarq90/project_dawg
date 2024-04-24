@@ -1,5 +1,5 @@
 import styledGlobal from "@/styles/pages/global.module.css";
-import CardGridCreators from "@/components/pages/browse/CardGridCreators";
+import CardGridX from "@/components/ui/CardGridX.jsx";
 
 export default function Creators() {
     return (
@@ -18,7 +18,7 @@ export default function Creators() {
                     <option value="">Linux</option>
                 </select>
             </div>
-            <CardGridCreators
+            <CardGridX
                 filter={'creator'}
                 url={'https://api.rawg.io/api/creators?key=9560492cd5c24a7cbe8ae7e99bb58971'}
             />
