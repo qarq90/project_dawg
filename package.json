@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "jotai": "^2.8.0",
+    "js-cookie": "^3.0.5",
     "mongoose": "^8.3.2",
     "next": "14.2.2",
+    "primereact": "^10.6.3",
     "react": "^18",
     "react-dom": "^18"
   },
