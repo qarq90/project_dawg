@@ -35,10 +35,6 @@
     }
 }
 
-.skeletonItem {
-    /*animation: skeleton-animation 2s ease-in-out infinite;*/
-}
-
 .skeletonImage {
     position: relative;
     border-top-left-radius: 12px;
@@ -50,7 +46,6 @@
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     transition: 0.25s all linear;
     overflow: hidden;
-    /*animation: skeleton-animation 2s ease-in-out infinite;*/
 }
 
 .skeletonIcon {
@@ -64,7 +59,6 @@
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     transition: 0.25s all linear;
     overflow: hidden;
-    /*animation: skeleton-animation 2s ease-in-out infinite;*/
 }
 
 .skeletonText {
@@ -78,10 +72,6 @@
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     transition: 0.25s all linear;
     overflow: hidden;
-}
-
-.skeletonItem, .skeletonItem div {
-    /*animation: skeleton-animation 2s ease-in-out infinite;*/
 }
 
 .skeletonItem div::before {
