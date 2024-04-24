@@ -1,12 +1,12 @@
 'use client'
 
-import styledGlobal from "@/styles/pages/global.module.css";
-import CardGrid from "@/components/ui/CardGrid";
-import {useEffect} from "react";
-import Cookies from "js-cookie";
-import {useRouter} from "next/navigation.js";
-import {useAtom} from "jotai";
-import {currentUserEmail, currentUserName, currentUserPassword} from "@/states/userState.jsx";
+import styledGlobal from "@/styles/pages/global.module.css"
+import CardGrid from "@/components/ui/CardGrid"
+import {useEffect} from "react"
+import Cookies from "js-cookie"
+import {useRouter} from "next/navigation.js"
+import {useAtom} from "jotai"
+import {currentUserEmail, currentUserName, currentUserPassword} from "@/states/userState.jsx"
 
 export default function Home() {
 
@@ -18,14 +18,14 @@ export default function Home() {
 
     useEffect(() => {
         const autoLogin = async () => {
-            const storageUserID = Cookies.get("storageUserID") || "";
+            const storageUserID = Cookies.get("storageUserID") || ""
 
             if (storageUserID === "") {
-                router.push("/auth/login");
+                router.push("/auth/login")
             } else {
                 const request = {
                     _id: storageUserID,
-                };
+                }
 
                 try {
                     const response = await fetch(`/api/auth/post/fetchUser`, {
@@ -34,25 +34,26 @@ export default function Home() {
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify(request),
-                    });
+                    })
 
-                    const data = await response.json();
+                    const data = await response.json()
 
                     if (data.status) {
-                        setUsername(data.result.user_name);
-                        setEmail(data.result.email_id);
-                        setPassword(data.result.password);
+
+                        setUsername(data.result.user_name)
+                        setEmail(data.result.email_id)
+                        setPassword(data.result.password)
                     }
 
                 } catch (error) {
-                    console.log(error);
+                    console.log(error)
                 }
             }
-        };
+        }
 
-        autoLogin();
+        autoLogin()
 
-    }, []);
+    }, [])
 
 
     return (
@@ -77,5 +78,5 @@ export default function Home() {
                 />
             </div>
         </>
-    );
+    )
 }

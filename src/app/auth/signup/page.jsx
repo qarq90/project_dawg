@@ -1,16 +1,16 @@
 'use client'
 
 import styledAuth from '@/styles/auth/auth.module.css'
-import {useAtom} from "jotai";
-import {currentUserEmail, currentUserName, currentUserPassword} from "@/states/userState.jsx";
-import {useRouter} from "next/navigation.js";
-import {emailRegex, showCustomToast} from "@/lib/helper.js";
-import {useRef} from "react";
-import {Toast} from "primereact/toast";
+import {useAtom} from "jotai"
+import {currentUserEmail, currentUserName, currentUserPassword} from "@/states/userState.jsx"
+import {useRouter} from "next/navigation.js"
+import {emailRegex, showCustomToast} from "@/lib/helper.js"
+import {useRef} from "react"
+import {Toast} from "primereact/toast"
 
 const Page = () => {
 
-    const router = useRouter();
+    const router = useRouter()
 
     const toastRef = useRef()
 
@@ -20,7 +20,7 @@ const Page = () => {
 
     async function signupHandler(e) {
 
-        e.preventDefault();
+        e.preventDefault()
 
         if (email === "" || password === "" || username === "") {
             showCustomToast(

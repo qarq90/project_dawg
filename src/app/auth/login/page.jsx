@@ -1,17 +1,17 @@
 'use client'
 
 import styledAuth from '@/styles/auth/auth.module.css'
-import {useEffect, useRef} from "react";
-import {useAtom} from "jotai";
-import {currentUserEmail, currentUserPassword} from "@/states/userState.jsx";
-import {useRouter} from "next/navigation.js";
-import {emailRegex, showCustomToast} from "@/lib/helper.js";
-import Cookies from "js-cookie";
-import {Toast} from "primereact/toast";
+import {useEffect, useRef} from "react"
+import {useAtom} from "jotai"
+import {currentUserEmail, currentUserPassword} from "@/states/userState.jsx"
+import {useRouter} from "next/navigation.js"
+import {emailRegex, showCustomToast} from "@/lib/helper.js"
+import Cookies from "js-cookie"
+import {Toast} from "primereact/toast"
 
 const Page = () => {
 
-    const router = useRouter();
+    const router = useRouter()
 
     const toastRef = useRef()
 
@@ -22,7 +22,7 @@ const Page = () => {
 
     useEffect(() => {
 
-        const storageUserID = Cookies.get("storageUserID") || "";
+        const storageUserID = Cookies.get("storageUserID") || ""
 
         if (storageUserID === "") {
 
@@ -30,11 +30,11 @@ const Page = () => {
 
         }
 
-    }, []);
+    }, [])
 
     async function loginHandler(e) {
 
-        e.preventDefault();
+        e.preventDefault()
 
         if (email === "" || password === "") {
             showCustomToast(
@@ -82,8 +82,8 @@ const Page = () => {
                 setEmail(data.result.email_id)
                 setPassword(data.result.password)
 
-                const userId = data.result._id;
-                Cookies.set("storageUserID", userId);
+                const userId = data.result._id
+                Cookies.set("storageUserID", userId)
 
                 router.push("/")
 

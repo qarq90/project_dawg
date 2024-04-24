@@ -1,9 +1,9 @@
 "use client"
 
-import styledGlobal from "@/styles/pages/global.module.css";
-import {Card} from "@/components/ui/Card";
-import {useEffect, useState} from "react";
-import {Skeleton} from "@/components/ui/Skeleton";
+import styledGlobal from "@/styles/pages/global.module.css"
+import {Card} from "@/components/ui/Card"
+import {useEffect, useState} from "react"
+import {Skeleton} from "@/components/ui/Skeleton"
 
 const CardGridCreators = ({url,filter}) => {
 
@@ -18,8 +18,8 @@ const CardGridCreators = ({url,filter}) => {
     }
 
     useEffect(() => {
-        getGames().then(r => console.log("Games Fetched"));
-    }, []);
+        getGames().then(r => console.log("Games Fetched"))
+    }, [])
 
 
     return (
@@ -43,7 +43,7 @@ const CardGridCreators = ({url,filter}) => {
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
-                                        ) : null;
+                                        ) : null
 
                                     })
                                 }
@@ -68,7 +68,7 @@ const CardGridCreators = ({url,filter}) => {
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
-                                        ) : null;
+                                        ) : null
 
                                     })
                                 }
@@ -93,7 +93,7 @@ const CardGridCreators = ({url,filter}) => {
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
-                                        ) : null;
+                                        ) : null
 
                                     })
                                 }
@@ -118,7 +118,7 @@ const CardGridCreators = ({url,filter}) => {
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
-                                        ) : null;
+                                        ) : null
 
                                     })
                                 }
