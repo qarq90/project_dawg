@@ -32,6 +32,7 @@ const CardGrid = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 0 ? (
                                             <Card
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -57,6 +58,7 @@ const CardGrid = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 1 ? (
                                             <Card
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -82,6 +84,7 @@ const CardGrid = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 2 ? (
                                             <Card
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -107,6 +110,7 @@ const CardGrid = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 3 ? (
                                             <Card
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}

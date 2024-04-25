@@ -21,13 +21,17 @@ export const Card = (props) => {
         ratTop,
         releaseDate,
         likes,
-        image
+        image,
+        slug
     } = props
 
     const [fullCard, setFullCard] = useState(false)
 
+    const tag = slug
+
     return (
-        <div
+        <Link
+            href={`/game/${tag}`}
             className={styledCard.card}
             onMouseEnter={() => setFullCard(true)}
             onMouseLeave={() => setFullCard(false)}
@@ -133,6 +137,6 @@ export const Card = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
