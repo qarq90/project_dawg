@@ -8,6 +8,8 @@
     font-size: 72px;
     line-height: 74px;
     font-weight: 700;
+    display: flex;
+    align-items: center;
 }
 
 .dropdownContainer {

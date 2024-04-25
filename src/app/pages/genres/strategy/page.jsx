@@ -1,7 +1,7 @@
 import styledGlobal from "@/styles/pages/global.module.css"
 import CardGridGenres from "@/components/ui/CardGridGenres";
 
-export default function Puzzle() {
+export default function Strategy() {
     return (
         <div className={styledGlobal.container}>
             <h1>Strategy</h1>

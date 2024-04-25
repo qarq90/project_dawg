@@ -14,7 +14,7 @@ body {
 :root {
     --main-bg: #151515;
     --main-color: #FFF;
-    --main-font: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+    --main-font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
     --comp-bg-a: #202020;
     --comp-bg-b: #262626;
     --comp-bg-c: #373737;
@@ -31,4 +31,49 @@ body {
 
 a {
     text-decoration: none;
+}
+
+.p-toast-message-icon {
+    color: var(--main-color);
+}
+
+.p-toast-message-content {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--main-color);
+}
+
+.p-toast-message {
+    position: absolute;
+    right: 0;
+    width: 25rem;
+    margin-top: 75px;
+    border-style: solid;
+    border-width: 0 0 0 6px;
+    border-radius: 0;
+    color: var(--main-color);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+    background-color: var(--comp-bg-c);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--comp-bg-c);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--comp-bg-b);
+}
+
+* {
+    scrollbar-width: thin;
+}
+
+* {
+    scrollbar-color: var(--comp-bg-c) var(--comp-bg-b);
 }
