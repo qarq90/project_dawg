@@ -2,13 +2,7 @@
 
 import styledDetails from "@/styles/pages/gameDetails.module.css";
 import {useAtom} from "jotai";
-import {
-    gameDetailsState,
-    gameIdState,
-    gameNameState,
-    gameScreenshotsState,
-    gameTrailerState
-} from "@/states/gameState.js";
+import {gameDetailsState, gameIdState, gameNameState, gameScreenshotsState} from "@/states/gameState.js";
 import {useEffect} from "react";
 import GameNav from "@/components/ui/GameNav.jsx";
 import Link from "next/link.js";

@@ -96,7 +96,7 @@ export default function AboutGame({params}) {
                             gameTrailer === null ? <></> :
                                 <>
                                     <div>
-                                        <video controls width="95%" height="600" src={gameTrailer?.results[0].data.max}/>
+                                        <video controls width="95%" height="600" src={gameTrailer?.results[0]?.data?.max}/>
                                     </div>
                                 </>
                         }
