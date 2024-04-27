@@ -67,7 +67,6 @@ export default function AboutGame({params}) {
             .then(data => {
                 setGameTrailer(data);
                 console.log(data);
-                console.log(`https://api.rawg.io/api/games/${gameId}/movies?key=9560492cd5c24a7cbe8ae7e99bb58971`)
             })
 
             .catch(error => {
@@ -97,7 +96,7 @@ export default function AboutGame({params}) {
                             gameTrailer === null ? <></> :
                                 <>
                                     <div>
-                                        <video controls width="95%" height="600" src={gameTrailer.results[0].data.max}/>
+                                        <video controls width="95%" height="600" src={gameTrailer?.results[0].data.max}/>
                                     </div>
                                 </>
                         }
