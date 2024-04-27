@@ -47,14 +47,15 @@ export default function AboutGame({params}) {
                 setGameDetails(data);
                 setGameId(data.id)
                 console.log(data);
-                console.log(gameId)
+                console.log(data.id)
             })
 
             .catch(error => {
                 console.error('Error fetching game details:', error);
             });
 
-        fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=9560492cd5c24a7cbe8ae7e99bb58971`)
+        if (gameId !== 0) {
+            fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=9560492cd5c24a7cbe8ae7e99bb58971`)
 
             .then(response => {
                 if (!response.ok) {
@@ -65,12 +66,16 @@ export default function AboutGame({params}) {
 
             .then(data => {
                 setGameTrailer(data);
-                console.log(data.results[0]);
+                console.log(data);
+                console.log(`https://api.rawg.io/api/games/${gameId}/movies?key=9560492cd5c24a7cbe8ae7e99bb58971`)
             })
 
             .catch(error => {
                 console.error('Error fetching game details:', error);
             });
+        } else {
+            console.log('game id is zero')
+        }
 
     }, []);
 
@@ -92,7 +97,7 @@ export default function AboutGame({params}) {
                             gameTrailer === null ? <></> :
                                 <>
                                     <div>
-                                        {/*<video controls width="95%" height="600" src={gameTrailer.results[0].data.max}/>*/}
+                                        <video controls width="95%" height="600" src={gameTrailer.results[0].data.max}/>
                                     </div>
                                 </>
                         }
