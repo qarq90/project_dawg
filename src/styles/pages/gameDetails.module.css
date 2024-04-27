@@ -35,7 +35,7 @@
 }
 
 .gameDescription > div > div {
-    margin-left: 2.5rem;
+    /*margin-left: 2.5rem;*/
 }
 
 .attributeValue {
@@ -61,6 +61,7 @@
 }
 
 .screenshotContainer {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,23 +74,25 @@
 }
 
 .screenshotContainer > h3 {
+    text-align: center;
     font-weight: normal;
-    margin-top: 1rem;
+    margin: 1rem 0;
 }
 
 .screenshotGrid {
-    /*padding: 1rem;*/
+    text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
     width: 95%;
 }
 
-.screenshotGrid > img {
+.screenshotGrid > .gridContainer > img {
     border-radius: 16px;
     width: 100%;
 }
 
-.screenshotGrid > h3 {
+.screenshotGrid > .gridContainer > h3 {
     font-weight: normal;
-    margin-top: 1rem;
+    margin: 1rem 0;
 }

@@ -10,7 +10,7 @@ import {AndroidIcon} from "../../../public/icon/AndroidIcon";
 import {NintendoIcon} from "../../../public/icon/NintendoIcon";
 import {AppleIcon} from "../../../public/icon/AppleIcon";
 import {useAtom} from "jotai";
-import {gameNameState} from "@/states/gameState.js";
+import {gameIdState} from "@/states/gameState.js";
 
 export const Card = (props) => {
 
@@ -24,22 +24,17 @@ export const Card = (props) => {
         releaseDate,
         likes,
         image,
-        slug
+        slug,
+        id
     } = props
 
     const [fullCard, setFullCard] = useState(false)
-    const [currentGameName, setCurrentGameName] = useAtom(gameNameState)
 
     const tag = slug
 
-    useEffect(()=>{
-        setCurrentGameName(slug)
-        console.log(currentGameName)
-    },[])
-
     return (
         <Link
-            href={`/game/${tag}`}
+            href={`/game/about/${tag}`}
             className={styledCard.card}
             onMouseEnter={() => setFullCard(true)}
             onMouseLeave={() => setFullCard(false)}
@@ -96,7 +91,7 @@ export const Card = (props) => {
                     })}
                 </div>
                 <div className={styledCard.cardText}>
-                    <Link href={link ? link : '/'}>{gameName}</Link>
+                    <Link href={link ? link : `/game/about/${tag}`}>{gameName}</Link>
                 </div>
                 <div className={styledCard.btnGroup}>
                     <button>
@@ -131,10 +126,20 @@ export const Card = (props) => {
                             {
                                 genres?.map((genre, index) => {
                                     if (index === genres.length - 1) {
-                                        return (<Link key={index} href={"/genres/" + genre.slug}>{genre.name}</Link>)
+                                        return (
+                                            <Link key={index} href={"/genres/" + genre.slug}>
+                                                {genre.name}
+                                            </Link>
+                                        )
                                     }
-                                    return (<><Link key={index}
-                                                    href={"/genres/" + genre.slug}>{genre.name}</Link>, &nbsp;</>)
+                                    return (
+                                        <>
+                                            <Link key={index} href={"/genres/" + genre.slug}>
+                                                {genre.name}
+                                            </Link>,
+                                            &nbsp;
+                                        </>
+                                    )
                                 })
                             }
                         </div>

@@ -19,7 +19,6 @@ const Page = () => {
     const [password, setPassword] = useAtom(currentUserPassword)
 
 
-
     useEffect(() => {
 
         const storageUserID = Cookies.get("storageUserID") || ""
@@ -83,7 +82,7 @@ const Page = () => {
                 setPassword(data.result.password)
 
                 const userId = data.result._id
-                Cookies.set("storageUserID", userId)
+                Cookies.set("storageUserID", userId, {expires: 7})
 
                 router.push("/")
 
