@@ -1,17 +1,24 @@
 import styledNav from '@/styles/ui/nav.module.css'
 import Link from "next/link";
 import {usePathname} from "next/navigation.js";
-import {profileTabs} from "@/lib/profileObj.js";
+import {gameTabs} from "@/lib/gameObj.js";
+import {useAtom} from "jotai";
+import {gameNameState} from "@/states/gameState.js";
+import {useEffect} from "react";
 
-const Nav = () => {
+const GameNav = ({slug}) => {
 
-    const currentPage = usePathname()
+    const currentPage = usePathname();
+
+    const [gameName] = useAtom(gameNameState);
+
+    const tabs = gameTabs(gameName);
 
     return (
         <div className={styledNav.headerWrapper}>
             <div className={styledNav.headerItem}>
                 <div className={styledNav.authBtnGroup}>
-                    {profileTabs.map((link, index) => (
+                    {tabs.map((link, index) => (
                         <Link
                             key={index}
                             href={link.href}
@@ -23,6 +30,7 @@ const Nav = () => {
                 </div>
             </div>
         </div>
-    )
-}
-export default Nav
+    );
+};
+
+export default GameNav;

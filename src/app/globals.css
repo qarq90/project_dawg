@@ -77,3 +77,7 @@ a {
 * {
     scrollbar-color: var(--comp-bg-c) var(--comp-bg-b);
 }
+
+*::selection{
+    background-color: var(--comp-bg-a);
+}
