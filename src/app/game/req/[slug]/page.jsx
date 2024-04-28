@@ -1,18 +1,14 @@
 'use client'
 
 import styledDetails from "@/styles/pages/gameDetails.module.css";
-import {GenreIcon} from "../../../../../public/icon/GenreIcon.jsx";
 import {ControllerIcon} from "../../../../../public/icon/ControllerIcon.jsx";
-import {CalendarIcon} from "../../../../../public/icon/CalendarIcon.jsx";
-import {DevelopersIcon} from "../../../../../public/icon/DevelopersIcon.jsx";
-import {PublisherIcon} from "../../../../../public/icon/PublisherIcon.jsx";
-import {HashtagIcon} from "../../../../../public/icon/HashtagIcon.jsx";
-import {UserIcon} from "../../../../../public/icon/UserIcon.jsx";
 import {useAtom} from "jotai";
 import {gameDetailsState} from "@/states/gameState.js";
 import {useEffect} from "react";
 import GameNav from "@/components/ui/GameNav.jsx";
-import Link from "next/link.js";
+import Link from "next/link";
+import {WindowsIcon} from "../../../../../public/icon/WindowsIcon.jsx";
+import {AppleIcon} from "../../../../../public/icon/AppleIcon.jsx";
 
 export default function Requirements({params}) {
 
@@ -67,14 +63,6 @@ export default function Requirements({params}) {
                 <div className={styledDetails.gameDetails}>
                     <div className={styledDetails.gameDescription}>
                         <div>
-                            <h3><GenreIcon/> Genre</h3>
-                            <div className={styledDetails.attributeValue}>
-                                {gameDetails.genres.map(genre => (
-                                    <span key={genre.id}> {genre.name}</span>
-                                ))}
-                            </div>
-                        </div>
-                        <div>
                             <h3><ControllerIcon/> Platforms</h3>
                             <div className={styledDetails.attributeValue}>
                                 {gameDetails.parent_platforms.map(platform => (
@@ -83,44 +71,14 @@ export default function Requirements({params}) {
                             </div>
                         </div>
                         <div>
-                            <h3><CalendarIcon/> Released Date</h3>
+                            <h3><WindowsIcon/> <AppleIcon/> PC Requirements</h3>
                             <div className={styledDetails.attributeValue}>
-                                <span className={styledDetails.gameDescription}>{gameDetails.released}</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h3><DevelopersIcon/> Developed By</h3>
-                            <div className={styledDetails.attributeValue}>
-                                {gameDetails.developers.slice(0, 1).map(developer => (
-                                    <span key={developer.id}>{developer.name} </span>
-                                ))}
-                            </div>
-                        </div>
-                        <div>
-                            <h3><PublisherIcon/> Published By</h3>
-                            <div className={styledDetails.attributeValue}>
-                                {gameDetails.publishers.map(publisher => (
-                                    <span key={publisher.id}>{publisher.name}</span>
-                                ))}
-                            </div>
-                        </div>
-                        <div>
-                            <h3><HashtagIcon/> Tags</h3>
-                            <div className={styledDetails.attributeValue} id={styledDetails.tagValues}>
-                                {gameDetails.tags.slice(0, 12).map(tag => (
-                                    <span key={tag.id}>{tag.name}</span>
-                                ))}
-                            </div>
-                        </div>
-                        <div>
-                            <h3><UserIcon/> Players Played</h3>
-                            <div id={styledDetails.tagValues}>
-                                {Object.entries(gameDetails.added_by_status).map(([key, value]) => (
-                                    <div className={styledDetails.attributeValue} key={key.id}>
-                                        <span>{key.charAt(0).toUpperCase() + key.slice(1)}: </span>
-                                        <span>{value}k</span>
-                                    </div>
-                                ))}
+                                <span>
+                                    <a href={`https://www.pcgamebenchmark.com/${game}-system-requirements`}
+                                       target='_blank'>
+                                    See PC Requirements
+                                </a>
+                                </span>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import styledCard from "@/styles/ui/card.module.css"
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import Link from "next/link";
 import {WindowsIcon} from "../../../public/icon/WindowsIcon";
 import {PlaystationIcon} from "../../../public/icon/PlaystationIcon";
@@ -9,8 +9,6 @@ import {XBoxIcon} from "../../../public/icon/XBoxIcon";
 import {AndroidIcon} from "../../../public/icon/AndroidIcon";
 import {NintendoIcon} from "../../../public/icon/NintendoIcon";
 import {AppleIcon} from "../../../public/icon/AppleIcon";
-import {useAtom} from "jotai";
-import {gameIdState} from "@/states/gameState.js";
 
 export const Card = (props) => {
 

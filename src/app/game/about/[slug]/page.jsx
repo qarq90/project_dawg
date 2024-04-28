@@ -7,19 +7,22 @@ import {CalendarIcon} from "../../../../../public/icon/CalendarIcon.jsx";
 import {DevelopersIcon} from "../../../../../public/icon/DevelopersIcon.jsx";
 import {PublisherIcon} from "../../../../../public/icon/PublisherIcon.jsx";
 import {HashtagIcon} from "../../../../../public/icon/HashtagIcon.jsx";
-import {UserIcon} from "../../../../../public/icon/UserIcon.jsx";
 import {useAtom} from "jotai";
 import {gameDetailsState, gameIdState, gameNameState, gameTrailerState} from "@/states/gameState.js";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import GameNav from "@/components/ui/GameNav.jsx";
-import Link from "next/link.js";
+import Link from "next/link";
+import {splitTextIntoSentences} from "@/lib/helper.js";
+import {UserIcon} from "../../../../../public/icon/UserIcon.jsx";
+import {ReviewIcon} from "../../../../../public/icon/ReviewIcon.jsx";
 
 export default function AboutGame({params}) {
 
     const [gameDetails, setGameDetails] = useAtom(gameDetailsState)
     const [gameTrailer, setGameTrailer] = useAtom(gameTrailerState)
-    const [gameName,setGameName] = useAtom(gameNameState)
+    const [gameName, setGameName] = useAtom(gameNameState)
     const [gameId, setGameId] = useAtom(gameIdState)
+    const [gameDescription, setGameDescription] = useState([])
 
     const game = params.slug
 
@@ -32,51 +35,57 @@ export default function AboutGame({params}) {
 
         setGameName(game)
 
-        console.log(gameId)
+        async function fetchGameAbout() {
+            fetch(`https://api.rawg.io/api/games/${game}?key=9560492cd5c24a7cbe8ae7e99bb58971`)
 
-        fetch(`https://api.rawg.io/api/games/${game}?key=9560492cd5c24a7cbe8ae7e99bb58971`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch game details');
+                    }
+                    return response.json();
+                })
 
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to fetch game details');
-                }
-                return response.json();
-            })
+                .then(data => {
 
-            .then(data => {
-                setGameDetails(data);
-                setGameId(data.id)
-                console.log(data);
-                console.log(data.id)
-            })
+                    setGameDetails(data);
+                    console.log(data)
 
-            .catch(error => {
-                console.error('Error fetching game details:', error);
-            });
+                    setGameId(data.id)
 
-        if (gameId !== 0) {
-            fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=9560492cd5c24a7cbe8ae7e99bb58971`)
+                    const desc = data.description_raw;
+                    const filteredDescArray = splitTextIntoSentences(desc);
+                    setGameDescription(filteredDescArray);
 
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to fetch game details');
-                }
-                return response.json();
-            })
+                })
 
-            .then(data => {
-                setGameTrailer(data);
-                console.log(data);
-            })
+                .catch(error => {
+                    console.error('Error fetching game details:', error);
+                });
 
-            .catch(error => {
-                console.error('Error fetching game details:', error);
-            });
-        } else {
-            console.log('game id is zero')
+            if (gameId !== 0) {
+
+                fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=9560492cd5c24a7cbe8ae7e99bb58971`)
+
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to fetch game trailer');
+                        }
+                        return response.json();
+                    })
+
+                    .then(data => {
+                        setGameTrailer(data);
+                    })
+
+                    .catch(error => {
+                        console.error('Error fetching game trailer:', error);
+                    });
+            }
         }
 
-    }, []);
+        fetchGameAbout().then(r => console.log(r))
+
+    }, [game]);
 
     return (
         <>
@@ -90,16 +99,28 @@ export default function AboutGame({params}) {
                     >
                     </div>
                     <div className={styledDetails.container}>
-                        <Link href={gameDetails.website} className={styledDetails.gameTitle}>{gameDetails.name}</Link>
+                        <Link href={gameDetails.website}
+                              className={styledDetails.gameTitle}>{gameDetails.name}</Link>
                         <GameNav/>
+                        <div className={styledDetails.gameDesc}>
+                            <p>{gameDescription[0] + gameDescription[1] + gameDescription[2] + gameDescription[3]}</p>
+                        </div>
                         {
                             gameTrailer === null ? <></> :
                                 <>
                                     <div>
-                                        <video controls width="95%" height="600" src={gameTrailer?.results[0]?.data?.max}/>
+                                        <video controls width="95%" height="600"
+                                               src={gameTrailer?.results[0]?.data?.max}/>
                                     </div>
                                 </>
                         }
+                        {gameDescription && (
+                            <div className={styledDetails.gameDesc}>
+                                {gameDescription.slice(4, 7).map((sentence, index) => (
+                                    <p key={index}>{sentence}</p>
+                                ))}
+                            </div>
+                        )}
                         <div className={styledDetails.gameDetails}>
                             <div className={styledDetails.gameDescription}>
                                 <div>
@@ -119,9 +140,22 @@ export default function AboutGame({params}) {
                                     </div>
                                 </div>
                                 <div>
+                                    <h3><UserIcon/> Age</h3>
+                                    <div className={styledDetails.attributeValue}>
+                                        <span>{gameDetails.esrb_rating.name}</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3><ReviewIcon/> Rating</h3>
+                                    <div className={styledDetails.attributeValue}>
+                                        <span>{gameDetails.rating}</span>
+                                    </div>
+                                </div>
+                                <div>
                                     <h3><CalendarIcon/> Released Date</h3>
                                     <div className={styledDetails.attributeValue}>
-                                        <span className={styledDetails.gameDescription}>{gameDetails.released}</span>
+                                            <span
+                                                className={styledDetails.gameDescription}>{gameDetails.released}</span>
                                     </div>
                                 </div>
                                 <div>
@@ -145,17 +179,6 @@ export default function AboutGame({params}) {
                                     <div className={styledDetails.attributeValue} id={styledDetails.tagValues}>
                                         {gameDetails.tags.slice(0, 12).map(tag => (
                                             <span key={tag.id}>{tag.name}</span>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3><UserIcon/> Players Played</h3>
-                                    <div id={styledDetails.tagValues}>
-                                        {Object.entries(gameDetails.added_by_status).map(([key, value]) => (
-                                            <div className={styledDetails.attributeValue} key={key.id}>
-                                                <span>{key.charAt(0).toUpperCase() + key.slice(1)}: </span>
-                                                <span>{value}k</span>
-                                            </div>
                                         ))}
                                     </div>
                                 </div>

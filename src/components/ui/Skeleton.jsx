@@ -1,6 +1,6 @@
 import styledSkeleton from '@/styles/ui/skeletons.module.css'
 
-export const Skeleton = () => {
+export const SkeletonCard = () => {
     return (
         <div className={styledSkeleton.skeletonContainer}>
             <div className={styledSkeleton.skeletonItem}>

@@ -2,7 +2,7 @@
 
 import styledGlobal from "@/styles/pages/global.module.css";
 import {useEffect, useState} from "react";
-import {Skeleton} from "@/components/ui/Skeleton";
+import {Skeleton, SkeletonCard} from "@/components/ui/Skeleton";
 import {CardX} from "@/components/ui/CardX.jsx";
 
 const CardGridX = ({url}) => {
@@ -49,7 +49,7 @@ const CardGridX = ({url}) => {
                                         ) : null;
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
@@ -73,7 +73,7 @@ const CardGridX = ({url}) => {
 
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
@@ -97,7 +97,7 @@ const CardGridX = ({url}) => {
 
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
@@ -121,7 +121,7 @@ const CardGridX = ({url}) => {
 
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
             </div>

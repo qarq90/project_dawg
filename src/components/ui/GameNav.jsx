@@ -4,9 +4,8 @@ import {usePathname} from "next/navigation.js";
 import {gameTabs} from "@/lib/gameObj.js";
 import {useAtom} from "jotai";
 import {gameNameState} from "@/states/gameState.js";
-import {useEffect} from "react";
 
-const GameNav = ({slug}) => {
+export default function GameNav() {
 
     const currentPage = usePathname();
 
@@ -31,6 +30,5 @@ const GameNav = ({slug}) => {
             </div>
         </div>
     );
-};
-
-export default GameNav;
+}
+;

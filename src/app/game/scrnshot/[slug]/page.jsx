@@ -5,10 +5,10 @@ import {useAtom} from "jotai";
 import {gameDetailsState, gameIdState, gameNameState, gameScreenshotsState} from "@/states/gameState.js";
 import {useEffect} from "react";
 import GameNav from "@/components/ui/GameNav.jsx";
-import Link from "next/link.js";
+import Link from "next/link";
 import {imageCaptions} from "@/lib/gameObj.js";
 
-export default function ScreenShot() {
+export default function ScreenShot({params}) {
 
     const [gameDetails, setGameDetails] = useAtom(gameDetailsState)
     const [gameScreenshots, setGameScreenshots] = useAtom(gameScreenshotsState)
@@ -24,8 +24,6 @@ export default function ScreenShot() {
             return;
         }
 
-        console.log(gameId)
-
         fetch(`https://api.rawg.io/api/games/${gameId}?key=9560492cd5c24a7cbe8ae7e99bb58971`)
 
             .then(response => {
@@ -38,8 +36,6 @@ export default function ScreenShot() {
             .then(data => {
                 setGameDetails(data);
                 setGameId(data.id)
-                console.log(gameDetails);
-                console.log(gameId)
             })
 
             .catch(error => {
@@ -57,7 +53,6 @@ export default function ScreenShot() {
 
             .then(data => {
                 setGameScreenshots(data);
-                console.log(data)
             })
 
             .catch(error => {

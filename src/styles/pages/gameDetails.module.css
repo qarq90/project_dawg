@@ -38,6 +38,16 @@
     /*margin-left: 2.5rem;*/
 }
 
+.gameDesc {
+    padding: 2rem;
+    width: 95%;
+}
+
+.gameDesc > p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+
 .attributeValue {
     margin-top: 1rem;
 }
@@ -52,7 +62,14 @@
 
 #tagValues {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+#playContainer {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
 }
 
@@ -89,10 +106,50 @@
 
 .screenshotGrid > .gridContainer > img {
     border-radius: 16px;
+    object-fit: cover;
     width: 100%;
+    height: 80%;
 }
 
 .screenshotGrid > .gridContainer > h3 {
     font-weight: normal;
     margin: 1rem 0;
+}
+
+.reviewGrid {
+    margin-top: 1rem;
+    width: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.reviewValue {
+    padding: 1rem;
+    background: rgba(33, 33, 33, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(50, 50, 50, 0.37);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-radius: 10px;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewValue > h4 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.usernameAccordian {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    margin-right: 1rem;
+    padding: 0.75rem;
+    border-radius: 100%;
+    background-color: white;
+    color: black;
 }
