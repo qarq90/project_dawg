@@ -96,12 +96,22 @@ export default function Reviews({params}) {
                         <div>
                             <h3><CalendarIcon/> Players Ratings</h3>
                             <div id={styledDetails.playContainer}>
-                                {gameDetails.ratings.map((rating, index) => (
-                                    <div className={styledDetails.attributeValue} key={index}>
-                                        <span>{rating.title.charAt(0).toUpperCase() + rating.title.slice(1).toLowerCase()}: </span>
-                                        <span>{rating.count}k</span>
-                                    </div>
-                                ))}
+                                {
+                                    gameDetails.rating ?
+                                        <>
+                                            {gameDetails.ratings.map((rating, index) => (
+                                                <div className={styledDetails.attributeValue} key={index}>
+                                                    <span>{rating.title.charAt(0).toUpperCase() + rating.title.slice(1).toLowerCase()}: </span>
+                                                    <span>{rating.count}k</span>
+                                                </div>
+                                            ))}
+                                        </> :
+                                        <div className={styledDetails.notThere}>
+                                            <div className={styledDetails.attributeValue}>
+                                                <span>NO RATING YET</span>
+                                            </div>
+                                        </div>
+                                }
                             </div>
                         </div>
                         <div>
@@ -118,23 +128,32 @@ export default function Reviews({params}) {
                         <div>
                             <h3><ReviewIcon/> Reviews</h3>
                             <div className={styledDetails.reviewGrid}>
-                                {gameReviews && gameReviews.map((review, index) => (
-                                    <div className={styledDetails?.reviewValue} key={index}>
-                                        <h4>
-                                            <div className={styledDetails?.usernameAccordian}>
-                                                {
-                                                    review.user
-                                                    &&
-                                                    review.user.username.charAt(0).toUpperCase()
-                                                    +
-                                                    review.user.username.charAt(4).toUpperCase()
-                                                }
-                                            </div>
-                                            {review.user && review.user.username}</h4>
-                                        <br/>
-                                        <span>{removeSpecialCharacters(review.text)}</span>
-                                    </div>
-                                ))}
+                                {
+                                    gameReviews === null || gameReviews.length === 0 ?
+                                        <div className={styledDetails.attributeValue}>
+                                            <span>NO REVIEWS YET</span>
+                                        </div> :
+                                        <>
+                                            {gameReviews.map((review, index) => (
+                                                <div className={styledDetails?.reviewValue} key={index}>
+                                                    <h4>
+                                                        <div className={styledDetails?.usernameAccordian}>
+                                                            {
+                                                                review.user
+                                                                &&
+                                                                review.user.username.charAt(0).toUpperCase()
+                                                                +
+                                                                review.user.username.charAt(4).toUpperCase()
+                                                            }
+                                                        </div>
+                                                        {review.user && review.user.username}</h4>
+                                                    <br/>
+                                                    <span>{removeSpecialCharacters(review.text)}</span>
+                                                </div>
+                                            ))}
+                                        </>
+                                }
+
                             </div>
                         </div>
                     </div>

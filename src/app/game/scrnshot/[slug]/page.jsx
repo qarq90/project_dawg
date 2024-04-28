@@ -79,16 +79,37 @@ export default function ScreenShot({params}) {
                         <GameNav/>
                         <div className={styledDetails.gameDescription}>
                             <div className={styledDetails.screenshotContainer}>
-                                <img src={gameDetails.background_image_additional} alt=""/>
-                                <h3>A Still from {gameDetails.name_original}</h3>
+                                {
+                                    gameDetails.background_image_additional !== null ?
+                                        <>
+                                            <img src={gameDetails.background_image_additional} alt=""/>
+                                            <h3>A Still from {gameDetails.name_original}</h3>
+                                        </>
+                                        :
+                                        <div className={styledDetails.attributeValue}>
+                                            <span
+                                                className={styledDetails.gameDescription}>NO SCREENSHOTS YET
+                                            </span>
+                                        </div>
+                                }
                             </div>
                             <div className={styledDetails.screenshotGrid}>
-                                {gameScreenshots.results && gameScreenshots.results.map((screenshot, index) => (
-                                    <div className={styledDetails.gridContainer} key={index}>
-                                        <img src={screenshot.image} alt={`Screenshot ${index}`}/>
-                                        <h3>{imageCaptions[index % imageCaptions.length]}</h3>
-                                    </div>
-                                ))}
+                                {
+                                    gameScreenshots !== null ?
+                                        <>
+                                            {gameScreenshots.results && gameScreenshots.results.map((screenshot, index) => (
+                                                <div className={styledDetails.gridContainer} key={index}>
+                                                    <img src={screenshot.image} alt={`Screenshot ${index}`}/>
+                                                    <h3>{imageCaptions[index % imageCaptions.length]}</h3>
+                                                </div>
+                                            ))}
+                                        </> :
+                                        <div className={styledDetails.attributeValue}>
+                                            <span
+                                                className={styledDetails.gameDescription}>NO SCREENSHOTS YET
+                                            </span>
+                                        </div>
+                                }
                             </div>
                         </div>
                     </div>

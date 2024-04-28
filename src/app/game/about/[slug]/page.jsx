@@ -107,7 +107,14 @@ export default function AboutGame({params}) {
                             <p>{gameDescription[0] + gameDescription[1] + gameDescription[2] + gameDescription[3]}</p>
                         </div>
                         {
-                            gameTrailer === null ? <></> :
+                            gameTrailer === null ?
+                                <div className={styledDetails.notThere}>
+                                    <div className={styledDetails.attributeValue}>
+                                            <span
+                                                className={styledDetails.gameDescription}>NO TRAILER YET
+                                            </span>
+                                    </div>
+                                </div> :
                                 <>
                                     <div>
                                         <video controls width="95%" height="600"
@@ -142,22 +149,62 @@ export default function AboutGame({params}) {
                                 </div>
                                 <div>
                                     <h3><UserIcon/> Age</h3>
-                                    <div className={styledDetails.attributeValue}>
-                                        <span>{gameDetails.esrb_rating.name}</span>
+                                    <div id={styledDetails.playContainer}>
+                                        {
+                                            gameDetails.esrb_rating ?
+                                                <>
+                                                    <div className={styledDetails.attributeValue}>
+                                                        <span>{gameDetails?.esrb_rating?.name}</span>
+                                                    </div>
+                                                </> :
+                                                <div className={styledDetails.notThere}>
+                                                    <div className={styledDetails.attributeValue}>
+                                                        <span>NO ESB RATING YET</span>
+                                                    </div>
+                                                </div>
+                                        }
                                     </div>
                                 </div>
                                 <div>
                                     <h3><ReviewIcon/> Rating</h3>
-                                    <div className={styledDetails.attributeValue}>
-                                        <span>{gameDetails.rating}</span>
+                                    <div id={styledDetails.playContainer}>
+                                        {
+                                            gameDetails.rating ?
+                                                <>
+                                                    {gameDetails.ratings.map((rating, index) => (
+                                                        <div className={styledDetails.attributeValue} key={index}>
+                                                            <span>{rating.title.charAt(0).toUpperCase() + rating.title.slice(1).toLowerCase()}: </span>
+                                                            <span>{rating.count}k</span>
+                                                        </div>
+                                                    ))}
+                                                </> :
+                                                <div className={styledDetails.notThere}>
+                                                    <div className={styledDetails.attributeValue}>
+                                                        <span>NO RATING YET</span>
+                                                    </div>
+                                                </div>
+                                        }
                                     </div>
                                 </div>
                                 <div>
                                     <h3><CalendarIcon/> Released Date</h3>
-                                    <div className={styledDetails.attributeValue}>
+                                    {
+                                        gameDetails.releaseDate ?
+                                            <>
+                                                <div className={styledDetails.attributeValue}>
                                             <span
-                                                className={styledDetails.gameDescription}>{gameDetails.released}</span>
-                                    </div>
+                                                className={styledDetails.gameDescription}>{gameDetails.released}
+                                            </span>
+                                                </div>
+                                            </> :
+                                            <div className={styledDetails.notThere}>
+                                                <div className={styledDetails.attributeValue}>
+                                            <span
+                                                className={styledDetails.gameDescription}>NO RELEASE DATE YET
+                                            </span>
+                                                </div>
+                                            </div>
+                                    }
                                 </div>
                                 <div>
                                     <h3><DevelopersIcon/> Developed By</h3>
