@@ -151,7 +151,7 @@ export default function ProfilePage() {
                         className={styledProfile.formInput}
                         value={inputUsername}
                         type="text"
-                        onChange={(e) => setInputUsername(e.target.value)} // Update inputUsername state
+                        onChange={(e) => setInputUsername(e.target.value)}
                     />
                     <p className={styledProfile.formLabel}><FaKey/> Password</p>
                     <input
