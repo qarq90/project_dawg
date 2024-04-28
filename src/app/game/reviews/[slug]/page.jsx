@@ -87,7 +87,9 @@ export default function Reviews({params}) {
             >
             </div>
             <div className={styledDetails.container}>
-                <Link href={gameDetails.website} className={styledDetails.gameTitle}>{gameDetails.name}</Link>
+                <Link href={gameDetails.website}
+                      target='_blank'
+                      className={styledDetails.gameTitle}>{gameDetails.name}</Link>
                 <GameNav/>
                 <div className={styledDetails.gameDetails}>
                     <div className={styledDetails.gameDescription}>

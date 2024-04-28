@@ -100,6 +100,7 @@ export default function AboutGame({params}) {
                     </div>
                     <div className={styledDetails.container}>
                         <Link href={gameDetails.website}
+                              target='_blank'
                               className={styledDetails.gameTitle}>{gameDetails.name}</Link>
                         <GameNav/>
                         <div className={styledDetails.gameDesc}>
