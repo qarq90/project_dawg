@@ -25,6 +25,8 @@ export default function ProfilePage() {
 
     const [inputUsername, setInputUsername] = useState(username);
 
+    const [showPassword, setShowPassword] = useState(false);
+
     useEffect(() => {
         const autoLogin = async () => {
             const storageUserID = Cookies.get("storageUserID") || "";
@@ -153,8 +155,10 @@ export default function ProfilePage() {
                     />
                     <p className={styledProfile.formLabel}><FaKey/> Password</p>
                     <input
+                        onFocus={() => setShowPassword(true)}
+                        onBlur={() => setShowPassword(false)}
                         className={styledProfile.formInput}
-                        value={password}
+                        value={showPassword ? password : '*********'}
                         type="text"
                         onChange={(e) => setPassword(e.target.value)} // Update inputPassword state
                     />
