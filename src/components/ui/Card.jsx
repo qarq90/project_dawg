@@ -1,7 +1,7 @@
 'use client'
 
 import styledCard from "@/styles/ui/card.module.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
 import {WindowsIcon} from "../../../public/icon/WindowsIcon";
 import {PlaystationIcon} from "../../../public/icon/PlaystationIcon";

@@ -2,7 +2,7 @@
 
 import styledGlobal from "@/styles/pages/global.module.css";
 import {useEffect, useState} from "react";
-import {Skeleton, SkeletonCard} from "@/components/ui/Skeleton";
+import {SkeletonCard} from "@/components/ui/Skeleton";
 import {CardX} from "@/components/ui/CardX.jsx";
 
 const CardGridX = ({url}) => {
@@ -39,6 +39,7 @@ const CardGridX = ({url}) => {
 
                                         return index % 4 === 0 ? (
                                             <CardX
+                                                id={card.id}
                                                 key={index}
                                                 image={image}
                                                 slug={card.slug}
@@ -61,7 +62,8 @@ const CardGridX = ({url}) => {
                                         const image = card.background_image || card.image || card.image_background
 
                                         return index % 4 === 1 ? (
-                                           <CardX
+                                            <CardX
+                                                id={card.id}
                                                 key={index}
                                                 image={image}
                                                 slug={card.slug}
@@ -86,6 +88,7 @@ const CardGridX = ({url}) => {
 
                                         return index % 4 === 2 ? (
                                             <CardX
+                                                id={card.id}
                                                 key={index}
                                                 image={image}
                                                 slug={card.slug}
@@ -110,6 +113,7 @@ const CardGridX = ({url}) => {
 
                                         return index % 4 === 3 ? (
                                             <CardX
+                                                id={card.id}
                                                 key={index}
                                                 image={image}
                                                 slug={card.slug}

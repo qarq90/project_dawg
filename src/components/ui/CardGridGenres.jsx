@@ -3,7 +3,7 @@
 import styledGlobal from "@/styles/pages/global.module.css";
 import {Card} from "@/components/ui/Card";
 import {useEffect, useState} from "react";
-import {Skeleton, SkeletonCard} from "@/components/ui/Skeleton";
+import {SkeletonCard} from "@/components/ui/Skeleton";
 
 const CardGridPGenres = ({url}) => {
 
@@ -33,6 +33,7 @@ const CardGridPGenres = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 0 ? (
                                             <Card
+                                                id={card.id}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -47,7 +48,7 @@ const CardGridPGenres = ({url}) => {
 
                                     })
                                 }
-                            </> : <SkeletonCard />
+                            </> : <SkeletonCard/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
@@ -58,6 +59,7 @@ const CardGridPGenres = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 1 ? (
                                             <Card
+                                                id={card.id}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -83,6 +85,7 @@ const CardGridPGenres = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 2 ? (
                                             <Card
+                                                id={card.id}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -108,6 +111,7 @@ const CardGridPGenres = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 3 ? (
                                             <Card
+                                                id={card.id}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
