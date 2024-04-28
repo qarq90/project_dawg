@@ -160,7 +160,7 @@ export default function ProfilePage() {
                         className={styledProfile.formInput}
                         value={showPassword ? password : '*********'}
                         type="text"
-                        onChange={(e) => setPassword(e.target.value)} // Update inputPassword state
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     <button
                         className={
