@@ -8,7 +8,7 @@ import {useEffect} from "react";
 import Cookies from "js-cookie";
 import {useRouter} from "next/navigation.js";
 import ProfileNav from "@/components/ui/ProfileNav.jsx";
-import CardGridPlatforms from "@/components/ui/CardGridPlatforms.jsx";
+import CardGrid from "@/components/ui/CardGrid.jsx";
 
 export default function ProfilePage() {
 
@@ -59,8 +59,8 @@ export default function ProfilePage() {
                 </p>
             </h1>
             <ProfileNav/>
-            <CardGridPlatforms
-                url={'https://api.rawg.io/api/games?key=9560492cd5c24a7cbe8ae7e99bb58971&platforms=18'}
+            <CardGrid
+                url={'https://api.rawg.io/api/games?key=9560492cd5c24a7cbe8ae7e99bb58971'}
             />
         </div>
     );

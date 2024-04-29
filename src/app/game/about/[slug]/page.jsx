@@ -149,25 +149,24 @@ export default function AboutGame({params}) {
                                 </div>
                                 <div>
                                     <h3><UserIcon/> Age</h3>
-                                    <div id={styledDetails.playContainer}>
-                                        {
-                                            gameDetails.esrb_rating ?
-                                                <>
-                                                    <div className={styledDetails.attributeValue}>
-                                                        <span>{gameDetails?.esrb_rating?.name}</span>
-                                                    </div>
-                                                </> :
-                                                <div className={styledDetails.notThere}>
-                                                    <div className={styledDetails.attributeValue}>
-                                                        <span>NO ESB RATING YET</span>
-                                                    </div>
+                                    {
+                                        gameDetails.esrb_rating ?
+                                            <>
+                                                <div className={styledDetails.attributeValue}>
+                                                    <span>{gameDetails?.esrb_rating?.name}</span>
                                                 </div>
-                                        }
-                                    </div>
+                                            </> :
+                                            <div className={styledDetails.notThere}>
+                                                <div className={styledDetails.attributeValue}>
+                                                    <span>NO ESB RATING YET</span>
+                                                </div>
+                                            </div>
+                                    }
                                 </div>
                                 <div>
                                     <h3><ReviewIcon/> Rating</h3>
-                                    <div id={styledDetails.playContainer}>
+                                    <div className={styledDetails.detailsGrid}>
+
                                         {
                                             gameDetails.rating ?
                                                 <>
@@ -189,7 +188,7 @@ export default function AboutGame({params}) {
                                 <div>
                                     <h3><CalendarIcon/> Released Date</h3>
                                     {
-                                        gameDetails.releaseDate ?
+                                        gameDetails.released ?
                                             <>
                                                 <div className={styledDetails.attributeValue}>
                                             <span

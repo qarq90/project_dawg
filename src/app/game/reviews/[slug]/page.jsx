@@ -95,13 +95,13 @@ export default function Reviews({params}) {
                     <div className={styledDetails.gameDescription}>
                         <div>
                             <h3><CalendarIcon/> Players Ratings</h3>
-                            <div id={styledDetails.playContainer}>
+                            <div className={styledDetails.detailsGrid}>
                                 {
                                     gameDetails.rating ?
                                         <>
                                             {gameDetails.ratings.map((rating, index) => (
                                                 <div className={styledDetails.attributeValue} key={index}>
-                                                    <span>{rating.title.charAt(0).toUpperCase() + rating.title.slice(1).toLowerCase()}: </span>
+                                                    <span>{rating.title.charAt(0).toUpperCase() + rating.title.slice(1).toLowerCase()} : </span>
                                                     <span>{rating.count}k</span>
                                                 </div>
                                             ))}
@@ -119,7 +119,7 @@ export default function Reviews({params}) {
                             <div id={styledDetails.tagValues}>
                                 {Object.entries(gameDetails.added_by_status).map(([key, value]) => (
                                     <div className={styledDetails.attributeValue} key={key.id}>
-                                        <span>{key.charAt(0).toUpperCase() + key.slice(1)}: </span>
+                                        <span>{key.charAt(0).toUpperCase() + key.slice(1)} : </span>
                                         <span>{value}k</span>
                                     </div>
                                 ))}
@@ -139,14 +139,14 @@ export default function Reviews({params}) {
                                                     <h4>
                                                         <div className={styledDetails?.usernameAccordian}>
                                                             {
-                                                                review.user
+                                                                review?.user
                                                                 &&
-                                                                review.user.username.charAt(0).toUpperCase()
+                                                                review?.user?.username?.charAt(0).toUpperCase()
                                                                 +
-                                                                review.user.username.charAt(4).toUpperCase()
+                                                                review?.user?.username?.charAt(4).toUpperCase()
                                                             }
                                                         </div>
-                                                        {review.user && review.user.username}</h4>
+                                                        {review?.user && review?.user?.username}</h4>
                                                     <br/>
                                                     <span>{removeSpecialCharacters(review.text)}</span>
                                                 </div>
