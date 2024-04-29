@@ -9,6 +9,8 @@ import {XBoxIcon} from "../../../public/icon/XBoxIcon";
 import {AndroidIcon} from "../../../public/icon/AndroidIcon";
 import {NintendoIcon} from "../../../public/icon/NintendoIcon";
 import {AppleIcon} from "../../../public/icon/AppleIcon";
+import {currentUserEmail} from "@/states/userState.jsx";
+import {useAtom} from "jotai";
 
 export const Card = (props) => {
 
@@ -30,20 +32,103 @@ export const Card = (props) => {
 
     const tag = slug
 
-    function gameLikeHandler(e) {
+    const [email] = useAtom(currentUserEmail)
+
+    async function gameLikeHandler(e) {
         e.preventDefault()
+
+        const request = {
+            email_id: email,
+            game_id: id.toString(),
+            game_name: slug,
+        };
+
+        try {
+            const response = await fetch(`/api/game/post/liked`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(request),
+            });
+
+            const data = await response.json();
+
+            if (data.status) {
+                console.log(data.message)
+            } else {
+                console.log(data.message)
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
 
         console.log('liked')
     }
 
-    function gameWishlistHandler(e) {
+    async function gameWishlistHandler(e) {
         e.preventDefault()
+
+        const request = {
+            email_id: email,
+            game_id: id.toString(),
+            game_name: slug,
+        };
+
+        try {
+            const response = await fetch(`/api/game/post/wishlist`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(request),
+            });
+
+            const data = await response.json();
+
+            if (data.status) {
+                console.log(data.message)
+            } else {
+                console.log(data.message)
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
 
         console.log('wishlist')
     }
 
-    function gameOwnedHandler(e) {
+    async function gameOwnedHandler(e) {
         e.preventDefault()
+
+        const request = {
+            email_id: email,
+            game_id: id.toString(),
+            game_name: slug,
+        };
+
+        try {
+            const response = await fetch(`/api/game/post/owned`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(request),
+            });
+
+            const data = await response.json();
+
+            if (data.status) {
+                console.log(data.message)
+            } else {
+                console.log(data.message)
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
 
         console.log('owned')
     }

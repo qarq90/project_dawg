@@ -3,11 +3,27 @@ import mongoose from 'mongoose'
 const {Schema} = mongoose
 
 const reviewSchema = new Schema({
-    user_name: String,
-    wishlisted_games: [],
-    liked_games: [],
-    owned_games: [],
-})
+    email_id: String,
+    wishlisted_games: [
+        {
+            game_id: String,
+            game_name: String
+        },
+    ],
+    liked_games: [
+        {
+            game_id: String,
+            game_name: String
+        },
+    ],
+    owned_games: [
+        {
+            game_id: String,
+            game_name: String
+        },
+    ],
+});
+
 
 let Games
 
