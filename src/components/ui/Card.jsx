@@ -1,7 +1,7 @@
 'use client'
 
 import styledCard from "@/styles/ui/card.module.css"
-import {useState} from "react";
+import {useRef, useState} from "react";
 import Link from "next/link";
 import {WindowsIcon} from "../../../public/icon/WindowsIcon";
 import {PlaystationIcon} from "../../../public/icon/PlaystationIcon";
@@ -11,8 +11,12 @@ import {NintendoIcon} from "../../../public/icon/NintendoIcon";
 import {AppleIcon} from "../../../public/icon/AppleIcon";
 import {currentUserEmail} from "@/states/userState.jsx";
 import {useAtom} from "jotai";
+import {Toast} from "primereact/toast";
+import {showCustomToast} from "@/lib/helper.js";
 
 export const Card = (props) => {
+
+    const toastRef = useRef();
 
     const {
         genres,
@@ -55,9 +59,23 @@ export const Card = (props) => {
             const data = await response.json();
 
             if (data.status) {
-                console.log(data.message)
+                showCustomToast(
+                    "success",
+                    `Game Liked`,
+                    "Please fill in all required fields.",
+                    `${gameName} Added to Liked Games`,
+                    toastRef,
+                    2000
+                );
             } else {
-                console.log(data.message)
+                showCustomToast(
+                    "failed",
+                    `Task Failed`,
+                    "Please fill in all required fields.",
+                    `${gameName} Failed to add`,
+                    toastRef,
+                    2000
+                );
             }
 
         } catch (error) {
@@ -88,9 +106,23 @@ export const Card = (props) => {
             const data = await response.json();
 
             if (data.status) {
-                console.log(data.message)
+                showCustomToast(
+                    "success",
+                    `Game Wishlisted`,
+                    "Please fill in all required fields.",
+                    `${gameName} Added to Wishlist`,
+                    toastRef,
+                    2000
+                );
             } else {
-                console.log(data.message)
+                showCustomToast(
+                    "failed",
+                    `Task Failed`,
+                    "Please fill in all required fields.",
+                    `${gameName} Failed to wishlist`,
+                    toastRef,
+                    2000
+                );
             }
 
         } catch (error) {
@@ -121,9 +153,23 @@ export const Card = (props) => {
             const data = await response.json();
 
             if (data.status) {
-                console.log(data.message)
+                showCustomToast(
+                    "success",
+                    `Success`,
+                    "Please fill in all required fields.",
+                    `${gameName} Added to Owned Games`,
+                    toastRef,
+                    2000
+                );
             } else {
-                console.log(data.message)
+                showCustomToast(
+                    "failed",
+                    `Task Failed`,
+                    "Please fill in all required fields.",
+                    `${gameName} Failed to add`,
+                    toastRef,
+                    2000
+                );
             }
 
         } catch (error) {
@@ -259,6 +305,7 @@ export const Card = (props) => {
                     </div>
                 </div>
             </div>
+            <Toast ref={toastRef} position="top-right"/>
         </Link>
     )
 }
