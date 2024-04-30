@@ -3,18 +3,22 @@
 import styledGlobal from "@/styles/pages/global.module.css";
 import {Card} from "@/components/ui/Card";
 import {useEffect, useState} from "react";
-import {Skeleton, SkeletonCard} from "@/components/ui/Skeleton";
+import {SkeletonCard} from "@/components/ui/Skeleton";
 
 const CardGridPlatforms = ({url}) => {
 
     const [cards, setCards] = useState([])
 
     const getGames = async () => {
-        const res = await fetch(url)
-        const data = await res.json()
-        console.log(data.results[0])
-        console.log(url)
-        setCards(data.results)
+        try {
+            const res = await fetch(url)
+            const data = await res.json()
+            console.log(data.results[0])
+            console.log(url)
+            setCards(data.results)
+        } catch (error) {
+            alert(error + " - Failed to fetch games. Please Reload Page...")
+        }
     }
 
     useEffect(() => {

@@ -4,6 +4,7 @@ import styledGlobal from "@/styles/pages/global.module.css";
 import {Card} from "@/components/ui/Card";
 import {useEffect, useState} from "react";
 import {SkeletonCard} from "@/components/ui/Skeleton";
+import {formatDate} from "@/lib/helper.js";
 
 const CardGrid = ({url}) => {
 
@@ -16,8 +17,8 @@ const CardGrid = ({url}) => {
             console.log(url)
             console.log(data.results[0])
             setCards(data.results)
-        } catch (e) {
-            alert(e + " - Failed to fetch games. Please Reload Page...")
+        } catch (error) {
+            alert(error + " - Failed to fetch games. Please Reload Page...")
         }
     }
 
@@ -25,11 +26,6 @@ const CardGrid = ({url}) => {
         getGames().then(r => console.log("Games Fetched"));
     }, []);
 
-    function formatDate(inputDate) {
-        const date = new Date(inputDate);
-        const options = {month: 'short', day: '2-digit', year: 'numeric'};
-        return date.toLocaleDateString('en-US', options);
-    }
 
     return (
         <>

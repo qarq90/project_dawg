@@ -108,12 +108,11 @@ export default function AboutGame({params}) {
                         </div>
                         {
                             gameTrailer === null ?
-                                <div className={styledDetails.notThere}>
-                                    <div className={styledDetails.attributeValue}>
+                                <div className={styledDetails.trailer + ' ' + styledDetails.attributeValue}
+                                     style={{marginLeft: "2rem"}}>
                                             <span
                                                 className={styledDetails.gameDescription}>NO TRAILER YET
                                             </span>
-                                    </div>
                                 </div> :
                                 <>
                                     <div>
@@ -151,11 +150,10 @@ export default function AboutGame({params}) {
                                     <h3><UserIcon/> Age</h3>
                                     {
                                         gameDetails.esrb_rating ?
-                                            <>
-                                                <div className={styledDetails.attributeValue}>
-                                                    <span>{gameDetails?.esrb_rating?.name}</span>
-                                                </div>
-                                            </> :
+                                            <div className={styledDetails.attributeValue}>
+                                                <span>{gameDetails?.esrb_rating?.name}</span>
+                                            </div>
+                                            :
                                             <div className={styledDetails.notThere}>
                                                 <div className={styledDetails.attributeValue}>
                                                     <span>NO ESB RATING YET</span>
@@ -223,11 +221,23 @@ export default function AboutGame({params}) {
                                 </div>
                                 <div>
                                     <h3><HashtagIcon/> Tags</h3>
-                                    <div className={styledDetails.attributeValue} id={styledDetails.tagValues}>
-                                        {gameDetails.tags.slice(0, 12).map(tag => (
-                                            <span key={tag.id}>{tag.name}</span>
-                                        ))}
-                                    </div>
+                                    {
+                                        gameDetails.tags.length !== 0 ?
+                                            <div className={styledDetails.attributeValue}
+                                                 id={styledDetails.tagValues}>
+
+                                                {gameDetails.tags.slice(0, 12).map(tag => (
+                                                    <span key={tag.id}>{tag.name}</span>
+                                                ))}
+                                            </div> :
+                                            <div className={styledDetails.notThere}>
+                                                <div className={styledDetails.attributeValue}>
+                                                        <span
+                                                            className={styledDetails.gameDescription}>NO TAGS YET
+                                                        </span>
+                                                </div>
+                                            </div>
+                                    }
                                 </div>
                             </div>
                         </div>

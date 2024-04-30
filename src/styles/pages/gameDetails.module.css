@@ -34,10 +34,6 @@
     margin-right: 1rem;
 }
 
-.gameDescription > div > div {
-    /*margin-left: 2.5rem;*/
-}
-
 .gameDesc {
     padding: 2rem;
     width: 95%;
@@ -148,11 +144,14 @@
 }
 
 .notThere {
-    padding: 1rem;
 }
 
 .detailsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
+}
+
+.trailer {
+    margin-left: 1rem;
 }

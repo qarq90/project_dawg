@@ -13,6 +13,7 @@ import {currentUserEmail} from "@/states/userState.jsx";
 import {useAtom} from "jotai";
 import {Toast} from "primereact/toast";
 import {showCustomToast} from "@/lib/helper.js";
+import {usePathname} from "next/navigation";
 
 export const Card = (props) => {
 
@@ -31,6 +32,8 @@ export const Card = (props) => {
         slug,
         id
     } = props
+
+    const pathname = usePathname()
 
     const [fullCard, setFullCard] = useState(false)
 
@@ -250,7 +253,7 @@ export const Card = (props) => {
                                 <rect width="3" height="12" x="4.5" rx=".75" transform="rotate(-90 6 6)"></rect>
                             </g>
                         </svg>
-                        {likes}
+                        {likes}k
                     </button>
                     <button style={{opacity: fullCard ? 1 : 0}} onClick={gameWishlistHandler}>
                         <svg className="SVGInline-svg game-card-button__icon-svg game-card-button__icon_20-svg"

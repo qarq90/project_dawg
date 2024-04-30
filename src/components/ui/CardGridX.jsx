@@ -10,15 +10,19 @@ const CardGridX = ({url}) => {
     const [cards, setCards] = useState([])
 
     const getGames = async () => {
-        const res = await fetch(url)
-        const data = await res.json()
-        console.clear()
-        const tez = data.results[0]
-        for (const key in tez) {
-            console.log("Key: " + key);
+        try {
+            const res = await fetch(url)
+            const data = await res.json()
+            console.clear()
+            const tez = data.results[0]
+            for (const key in tez) {
+                console.log("Key: " + key);
+            }
+            console.log(tez.games)
+            setCards(data.results)
+        } catch (error) {
+            alert(error + " - Failed to fetch games. Please Reload Page...")
         }
-        console.log(tez.games)
-        setCards(data.results)
     }
 
     useEffect(() => {
