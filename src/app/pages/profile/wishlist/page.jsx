@@ -54,7 +54,8 @@ export default function WishlistPage() {
                 }
             }
         }
-        autoLogin()
+
+        autoLogin().then(r => console.log(r))
 
         const fetchWishlistGames = async () => {
 

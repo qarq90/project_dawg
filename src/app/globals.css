@@ -48,7 +48,7 @@ a {
 .p-toast-message {
     position: absolute;
     right: 0;
-    width: 25rem;
+    width: 30rem;
     margin-top: 75px;
     border-style: solid;
     border-width: 0 0 0 6px;

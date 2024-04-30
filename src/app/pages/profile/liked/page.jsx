@@ -18,7 +18,8 @@ export default function ProfilePage() {
 
     const [username, setUsername] = useAtom(currentUserName);
     const [email_id] = useAtom(currentUserEmail);
-    const [likedGames, setlikedGames] = useState([]);
+    const [likedGames, setLikedGames] = useState([]);
+    const [showGames, setShowGames] = useState(true);
 
     useEffect(() => {
 
@@ -47,16 +48,17 @@ export default function ProfilePage() {
                         setUsername(data.result.user_name)
                     }
 
-                    await fetchlikedGames()
+                    await fetchLikedGames()
 
                 } catch (error) {
                     console.log(error)
                 }
             }
         }
-        autoLogin()
 
-        const fetchlikedGames = async () => {
+        autoLogin().then(r => console.log(r))
+
+        const fetchLikedGames = async () => {
 
             try {
 
@@ -96,7 +98,7 @@ export default function ProfilePage() {
 
                     const fetchedGames = await Promise.all(fetchLikedPromise);
 
-                    setlikedGames((prevState) => {
+                    setLikedGames((prevState) => {
 
                         const filteredGames = [...prevState, ...fetchedGames];
 

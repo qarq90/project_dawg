@@ -220,20 +220,44 @@ export const Card = (props) => {
             const data = await response.json();
 
             if (data.status) {
-                showCustomToast(
-                    "success",
-                    `Success`,
-                    "Please fill in all required fields.",
-                    `${gameName} Removed from to ${request.removeFrom} Games`,
-                    toastRef,
-                    2000
-                );
+                switch (request.removeFrom) {
+                    case 'wishlisted_games':
+                        showCustomToast(
+                            "success",
+                            `Success`,
+                            "Please fill in all required fields.",
+                            `${gameName} Removed from to Wishlist Games`,
+                            toastRef,
+                            2000
+                        );
+                        return
+                    case 'owned_games':
+                        showCustomToast(
+                            "success",
+                            `Success`,
+                            "Please fill in all required fields.",
+                            `${gameName} Removed from to Owned Games`,
+                            toastRef,
+                            2000
+                        );
+                        return
+                    case 'liked_games':
+                        showCustomToast(
+                            "success",
+                            `Success`,
+                            "Please fill in all required fields.",
+                            `${gameName} Removed from to Liked Games`,
+                            toastRef,
+                            2000
+                        );
+                        return
+                }
             } else {
                 showCustomToast(
                     "failed",
                     `Task Failed`,
                     "Please fill in all required fields.",
-                    `${gameName} Failed to remove`,
+                    `Failed to remove ${gameName} `,
                     toastRef,
                     2000
                 );

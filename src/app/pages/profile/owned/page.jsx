@@ -54,7 +54,8 @@ export default function ProfilePage() {
                 }
             }
         }
-        autoLogin()
+
+        autoLogin().then(r => console.log(r))
 
         const fetchOwnedGames = async () => {
 
