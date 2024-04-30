@@ -95,7 +95,6 @@ export default function ProfilePage() {
                     });
 
                     const fetchedGames = await Promise.all(fetchOwnedPromise);
-                    console.log("Fetched games:", fetchedGames);
 
                     setOwnedGames((prevState) => {
 

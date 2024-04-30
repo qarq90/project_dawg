@@ -95,7 +95,6 @@ export default function WishlistPage() {
                     });
 
                     const fetchedGames = await Promise.all(fetchWishlistPromise);
-                    console.log("Fetched games:", fetchedGames);
 
                     setWishlistGames((prevState) => {
 
