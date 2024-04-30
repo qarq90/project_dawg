@@ -11,8 +11,6 @@ export const POST = async (request) => {
         const ownedGames = await Games.findOne({email_id: email_id});
 
         if (ownedGames) {
-            console.log("User games found:", ownedGames);
-
             return NextResponse.json({
                 message: 'User Games Retrieved Successfully',
                 status: true,

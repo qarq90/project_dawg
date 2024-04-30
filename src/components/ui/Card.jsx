@@ -41,6 +41,21 @@ export const Card = (props) => {
 
     const [email] = useAtom(currentUserEmail)
 
+    function getRemoveFromValue() {
+        const currentPath = window.location.pathname;
+
+        switch (currentPath) {
+            case '/pages/profile/liked':
+                return 'liked_games';
+            case '/pages/profile/owned':
+                return 'owned_games';
+            case '/pages/profile/wishlist':
+                return 'wishlisted_games';
+            default:
+                return '';
+        }
+    }
+
     async function gameLikeHandler(e) {
         e.preventDefault()
 
@@ -182,6 +197,53 @@ export const Card = (props) => {
         console.log('owned')
     }
 
+    async function gameRemoveHandler(e) {
+        e.preventDefault()
+
+        const request = {
+            email_id: email,
+            game_id: id.toString(),
+            removeFrom: getRemoveFromValue()
+        };
+
+        console.log(request)
+
+        try {
+            const response = await fetch(`/api/pages/post/profile/removeGame`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(request),
+            });
+
+            const data = await response.json();
+
+            if (data.status) {
+                showCustomToast(
+                    "success",
+                    `Success`,
+                    "Please fill in all required fields.",
+                    `${gameName} Removed from to ${request.removeFrom} Games`,
+                    toastRef,
+                    2000
+                );
+            } else {
+                showCustomToast(
+                    "failed",
+                    `Task Failed`,
+                    "Please fill in all required fields.",
+                    `${gameName} Failed to remove`,
+                    toastRef,
+                    2000
+                );
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <Link
             href={`/game/about/${tag}`}
@@ -270,6 +332,16 @@ export const Card = (props) => {
                                 fill="#FFFFFF"/>
                         </svg>
                     </button>
+                    {pathname.startsWith('/pages/profile/') ?
+                        <button style={{opacity: fullCard ? 1 : 0}} onClick={gameRemoveHandler}>
+                            <svg className="SVGInline-svg game-card-button__icon-svg game-card-button__icon_20-svg"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="15" height="15">
+                                <path
+                                    d="M10 2L9 3L4 3L4 5L20 5L20 3L15 3L14 2L10 2 z M 5 7L5 20C5 21.1 5.9 22 7 22L17 22C18.1 22 19 21.1 19 20L19 7L5 7 z M 9.4101562 10L12 12.589844L14.589844 10L16 11.410156L13.410156 14L16 16.589844L14.589844 18L12 15.410156L9.4101562 18L8 16.589844L10.589844 14L8 11.410156L9.4101562 10 z"
+                                    fill="#FFFFFF"/>
+                            </svg>
+                        </button> : <></>
+                    }
                 </div>
                 <div className={styledCard.hoveredCard + ' ' + (fullCard ? styledCard.isHovered : '')}>
                     <div className={styledCard.hoveredCardItem}

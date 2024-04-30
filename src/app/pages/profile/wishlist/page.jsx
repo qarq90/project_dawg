@@ -132,115 +132,113 @@ export default function WishlistPage() {
                 </p>
             </h1>
             <ProfileNav/>
-            <div>
-                <div className={styledGlobal.gamesGrid}>
-                    <div className={styledGlobal.gamesColumn}>
-                        {
-                            wishlistGames?.length !== 0 ?
-                                <>
-                                    {
-                                        wishlistGames?.map((card, index) => {
-                                            return index % 4 === 0 ? (
-                                                <Card
-                                                    id={card.id}
-                                                    slug={card.slug}
-                                                    key={index}
-                                                    gameName={card.name}
-                                                    genres={card.genres}
-                                                    likes={card.ratings_count}
-                                                    image={card.background_image}
-                                                    platforms={card.parent_platforms}
-                                                    releaseDate={formatDate(card.released) || '-'}
-                                                    rat={card.rating}
-                                                    ratTop={card.rating_top}
-                                                />
-                                            ) : null;
-                                        })
-                                    }
-                                </> : <SkeletonCard/>
-                        }
-                    </div>
-                    <div className={styledGlobal.gamesColumn}>
-                        {
-                            wishlistGames?.length !== 0 ?
-                                <>
-                                    {
-                                        wishlistGames?.map((card, index) => {
-                                            return index % 4 === 1 ? (
-                                                <Card
-                                                    id={card.id}
-                                                    slug={card.slug}
-                                                    key={index}
-                                                    gameName={card.name}
-                                                    genres={card.genres}
-                                                    likes={card.ratings_count}
-                                                    image={card.background_image}
-                                                    platforms={card.parent_platforms}
-                                                    releaseDate={formatDate(card.released) || '-'}
-                                                    rat={card.rating}
-                                                    ratTop={card.rating_top}
-                                                />
-                                            ) : null;
+            <div className={styledGlobal.gamesGrid}>
+                <div className={styledGlobal.gamesColumn}>
+                    {
+                        wishlistGames?.length !== 0 ?
+                            <>
+                                {
+                                    wishlistGames?.map((card, index) => {
+                                        return index % 4 === 0 ? (
+                                            <Card
+                                                id={card.id}
+                                                slug={card.slug}
+                                                key={index}
+                                                gameName={card.name}
+                                                genres={card.genres}
+                                                likes={card.ratings_count}
+                                                image={card.background_image}
+                                                platforms={card.parent_platforms}
+                                                releaseDate={formatDate(card.released) || '-'}
+                                                rat={card.rating}
+                                                ratTop={card.rating_top}
+                                            />
+                                        ) : null;
+                                    })
+                                }
+                            </> : <SkeletonCard/>
+                    }
+                </div>
+                <div className={styledGlobal.gamesColumn}>
+                    {
+                        wishlistGames?.length !== 0 ?
+                            <>
+                                {
+                                    wishlistGames?.map((card, index) => {
+                                        return index % 4 === 1 ? (
+                                            <Card
+                                                id={card.id}
+                                                slug={card.slug}
+                                                key={index}
+                                                gameName={card.name}
+                                                genres={card.genres}
+                                                likes={card.ratings_count}
+                                                image={card.background_image}
+                                                platforms={card.parent_platforms}
+                                                releaseDate={formatDate(card.released) || '-'}
+                                                rat={card.rating}
+                                                ratTop={card.rating_top}
+                                            />
+                                        ) : null;
 
-                                        })
-                                    }
-                                </> : <SkeletonCard/>
-                        }
-                    </div>
-                    <div className={styledGlobal.gamesColumn}>
-                        {
-                            wishlistGames?.length !== 0 ?
-                                <>
-                                    {
-                                        wishlistGames?.map((card, index) => {
-                                            return index % 4 === 2 ? (
-                                                <Card
-                                                    id={card.id}
-                                                    slug={card.slug}
-                                                    key={index}
-                                                    gameName={card.name}
-                                                    genres={card.genres}
-                                                    likes={card.ratings_count}
-                                                    image={card.background_image}
-                                                    platforms={card.parent_platforms}
-                                                    releaseDate={formatDate(card.released) || '-'}
-                                                    rat={card.rating}
-                                                    ratTop={card.rating_top}
-                                                />
-                                            ) : null;
+                                    })
+                                }
+                            </> : <SkeletonCard/>
+                    }
+                </div>
+                <div className={styledGlobal.gamesColumn}>
+                    {
+                        wishlistGames?.length !== 0 ?
+                            <>
+                                {
+                                    wishlistGames?.map((card, index) => {
+                                        return index % 4 === 2 ? (
+                                            <Card
+                                                id={card.id}
+                                                slug={card.slug}
+                                                key={index}
+                                                gameName={card.name}
+                                                genres={card.genres}
+                                                likes={card.ratings_count}
+                                                image={card.background_image}
+                                                platforms={card.parent_platforms}
+                                                releaseDate={formatDate(card.released) || '-'}
+                                                rat={card.rating}
+                                                ratTop={card.rating_top}
+                                            />
+                                        ) : null;
 
-                                        })
-                                    }
-                                </> : <SkeletonCard/>
-                        }
-                    </div>
-                    <div className={styledGlobal.gamesColumn}>
-                        {
-                            wishlistGames?.length !== 0 ?
-                                <>
-                                    {
-                                        wishlistGames?.map((card, index) => {
-                                            return index % 4 === 3 ? (
-                                                <Card
-                                                    id={card.id}
-                                                    slug={card.slug}
-                                                    key={index}
-                                                    gameName={card.name}
-                                                    genres={card.genres}
-                                                    likes={card.ratings_count}
-                                                    image={card.background_image}
-                                                    platforms={card.parent_platforms}
-                                                    releaseDate={formatDate(card.released) || '-'}
-                                                    rat={card.rating}
-                                                    ratTop={card.rating_top}
-                                                />
-                                            ) : null;
+                                    })
+                                }
+                            </> : <SkeletonCard/>
+                    }
+                </div>
+                <div className={styledGlobal.gamesColumn}>
+                    {
+                        wishlistGames?.length !== 0 ?
+                            <>
+                                {
+                                    wishlistGames?.map((card, index) => {
+                                        return index % 4 === 3 ? (
+                                            <Card
+                                                id={card.id}
+                                                slug={card.slug}
+                                                key={index}
+                                                gameName={card.name}
+                                                genres={card.genres}
+                                                likes={card.ratings_count}
+                                                image={card.background_image}
+                                                platforms={card.parent_platforms}
+                                                releaseDate={formatDate(card.released) || '-'}
+                                                rat={card.rating}
+                                                ratTop={card.rating_top}
+                                            />
+                                        ) : null;
 
-                                        })
-                                    }
-                                </> : <SkeletonCard/>
-                        }
-                    </div>
+                                    })
+                                }
+                            </> : <SkeletonCard/>
+                    }
                 </div>
             </div>
         </div>
