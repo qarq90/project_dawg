@@ -5,7 +5,7 @@ import {Card} from "@/components/ui/Card";
 import {useEffect, useReducer, useState} from "react";
 import {SkeletonCard} from "@/components/ui/Skeleton";
 import {formatDate} from "@/lib/helper.js";
-import {router} from "next/client.js";
+import {router} from "next/navigation.js";
 
 const CardGrid = ({url}) => {
 
