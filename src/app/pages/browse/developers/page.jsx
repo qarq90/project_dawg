@@ -1,6 +1,10 @@
 import styledGlobal from "@/styles/pages/global.module.css";
+<<<<<<< HEAD
 import CardGridGenres from "@/components/pages/browse/CardGridGenres";
 import CardGridDevelopers from "@/components/pages/browse/CardGridDevelopers";
+=======
+import CardGridX from "@/components/ui/CardGridX.jsx";
+>>>>>>> qarq90
 
 export default function Developers() {
     return (
@@ -19,7 +23,11 @@ export default function Developers() {
                     <option value="">Linux</option>
                 </select>
             </div>
+<<<<<<< HEAD
             <CardGridDevelopers
+=======
+            <CardGridX
+>>>>>>> qarq90
                 url={'https://api.rawg.io/api/developers?key=9560492cd5c24a7cbe8ae7e99bb58971'}
             />
         </div>

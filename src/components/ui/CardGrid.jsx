@@ -3,17 +3,21 @@
 import styledGlobal from "@/styles/pages/global.module.css";
 import {Card} from "@/components/ui/Card";
 import {useEffect, useState} from "react";
-import {Skeleton} from "@/components/ui/Skeleton";
+import {SkeletonCard} from "@/components/ui/Skeleton";
+import {formatDate} from "@/lib/helper.js";
 
 const CardGrid = ({url}) => {
 
     const [cards, setCards] = useState([])
 
     const getGames = async () => {
-        const res = await fetch(url)
-        const data = await res.json()
-        console.log(data.results[0])
-        setCards(data.results)
+        try {
+            const res = await fetch(url)
+            const data = await res.json()
+            setCards(data.results)
+        } catch (error) {
+            alert(error + " - Failed to fetch games. Please Reload Page...")
+        }
     }
 
     useEffect(() => {
@@ -32,21 +36,22 @@ const CardGrid = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 0 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
                                                 likes={card.ratings_count}
                                                 image={card.background_image}
                                                 platforms={card.parent_platforms}
-                                                releaseDate={card.released}
+                                                releaseDate={formatDate(card.released) || '-'}
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
                                         ) : null;
-
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
@@ -57,13 +62,15 @@ const CardGrid = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 1 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
                                                 likes={card.ratings_count}
                                                 image={card.background_image}
                                                 platforms={card.parent_platforms}
-                                                releaseDate={card.released}
+                                                releaseDate={formatDate(card.released) || '-'}
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
@@ -71,7 +78,7 @@ const CardGrid = ({url}) => {
 
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
@@ -82,13 +89,15 @@ const CardGrid = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 2 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
                                                 likes={card.ratings_count}
                                                 image={card.background_image}
                                                 platforms={card.parent_platforms}
-                                                releaseDate={card.released}
+                                                releaseDate={formatDate(card.released) || '-'}
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
@@ -96,7 +105,7 @@ const CardGrid = ({url}) => {
 
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
@@ -107,13 +116,15 @@ const CardGrid = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 3 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
                                                 likes={card.ratings_count}
                                                 image={card.background_image}
                                                 platforms={card.parent_platforms}
-                                                releaseDate={card.released}
+                                                releaseDate={formatDate(card.released) || '-'}
                                                 rat={card.rating}
                                                 ratTop={card.rating_top}
                                             />
@@ -121,7 +132,7 @@ const CardGrid = ({url}) => {
 
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
             </div>

@@ -8,6 +8,8 @@
     font-size: 72px;
     line-height: 74px;
     font-weight: 700;
+    display: flex;
+    align-items: center;
 }
 
 .dropdownContainer {
@@ -45,5 +47,20 @@
 .gamesColumn {
     display: flex;
     flex-direction: column;
+}
+
+.calendarLinks {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.calendarLink {
+    color: var(--main-color);
+    opacity: .5;
+}
+
+.calendarLinkActive {
+    opacity: 1;
 }
 

@@ -1,5 +1,9 @@
 import styledGlobal from "@/styles/pages/global.module.css";
+<<<<<<< HEAD
 import CardGridPublishers from "@/components/pages/browse/CardGridPublishers";
+=======
+import CardGridX from "@/components/ui/CardGridX.jsx";
+>>>>>>> qarq90
 
 export default function Publishers() {
     return (
@@ -18,7 +22,11 @@ export default function Publishers() {
                     <option value="">Linux</option>
                 </select>
             </div>
+<<<<<<< HEAD
             <CardGridPublishers
+=======
+            <CardGridX
+>>>>>>> qarq90
                 url={'https://api.rawg.io/api/publishers?key=9560492cd5c24a7cbe8ae7e99bb58971'}
             />
         </div>

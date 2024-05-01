@@ -1,5 +1,9 @@
 import styledGlobal from "@/styles/pages/global.module.css";
+<<<<<<< HEAD
 import CardGridCreators from "@/components/pages/browse/CardGridCreators";
+=======
+import CardGridX from "@/components/ui/CardGridX.jsx";
+>>>>>>> qarq90
 
 export default function Creators() {
     return (
@@ -18,7 +22,11 @@ export default function Creators() {
                     <option value="">Linux</option>
                 </select>
             </div>
+<<<<<<< HEAD
             <CardGridCreators
+=======
+            <CardGridX
+>>>>>>> qarq90
                 filter={'creator'}
                 url={'https://api.rawg.io/api/creators?key=9560492cd5c24a7cbe8ae7e99bb58971'}
             />

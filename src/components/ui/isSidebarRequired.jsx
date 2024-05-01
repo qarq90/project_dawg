@@ -11,7 +11,7 @@ const IsSidebarRequired = ({children}) => {
         <div className="layout">
             <Nav/>
             {
-                isAuth ? <></> : <Sidebar/>
+                isAuth ? <div></div> : <Sidebar/>
             }
             {children}
         </div>

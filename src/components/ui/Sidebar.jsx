@@ -15,9 +15,6 @@ export const Sidebar = () => {
                 <Link className={styledSidebar.linkHeader} href="/">Home</Link>
             </ul>
             <ul className={styledSidebar.sidebarUL}>
-                <Link className={styledSidebar.linkHeader} href="/pages/reviews">Reviews</Link>
-            </ul>
-            <ul className={styledSidebar.sidebarUL}>
                 <Link className={styledSidebar.linkHeader} href="/">New Releases</Link>
                 {
                     sidebarNewReleases.map((link, index) => (
@@ -46,9 +43,6 @@ export const Sidebar = () => {
                         </Link>
                     ))
                 }
-            </ul>
-            <ul className={styledSidebar.sidebarUL}>
-                <Link className={styledSidebar.linkHeader} href="/pages/allGames">All Games</Link>
             </ul>
             <ul className={styledSidebar.sidebarUL}>
                 <h1 className={styledSidebar.linkHeader}>Browse</h1>

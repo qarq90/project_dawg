@@ -74,3 +74,29 @@
 .authBtnGroup a:hover {
     border-bottom: 2px solid white;
 }
+
+.authBtnGroup > .userNameAccordian:hover {
+    border-bottom: none;
+}
+
+.userNameAccordian {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    background-color: var(--comp-bg-c);
+}
+
+.userNameAccordian:hover {
+    border-bottom: none;
+}
+
+.userNameAccordian > p {
+    margin-top: 5px;
+}
+
+.authBtnGroup .currentLink {
+    border-bottom: 2px solid white;
+}

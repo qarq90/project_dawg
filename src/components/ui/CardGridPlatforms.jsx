@@ -3,18 +3,20 @@
 import styledGlobal from "@/styles/pages/global.module.css";
 import {Card} from "@/components/ui/Card";
 import {useEffect, useState} from "react";
-import {Skeleton} from "@/components/ui/Skeleton";
+import {SkeletonCard} from "@/components/ui/Skeleton";
 
 const CardGridPlatforms = ({url}) => {
 
     const [cards, setCards] = useState([])
 
     const getGames = async () => {
-        const res = await fetch(url)
-        const data = await res.json()
-        console.log(data.results[0])
-        console.log(url)
-        setCards(data.results)
+        try {
+            const res = await fetch(url)
+            const data = await res.json()
+            setCards(data.results)
+        } catch (error) {
+            alert(error + " - Failed to fetch games. Please Reload Page...")
+        }
     }
 
     useEffect(() => {
@@ -33,6 +35,8 @@ const CardGridPlatforms = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 0 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -47,7 +51,7 @@ const CardGridPlatforms = ({url}) => {
 
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
@@ -58,6 +62,8 @@ const CardGridPlatforms = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 1 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -72,7 +78,7 @@ const CardGridPlatforms = ({url}) => {
 
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
@@ -83,6 +89,8 @@ const CardGridPlatforms = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 2 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -97,7 +105,7 @@ const CardGridPlatforms = ({url}) => {
 
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
                 <div className={styledGlobal.gamesColumn}>
@@ -108,6 +116,8 @@ const CardGridPlatforms = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 3 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -122,7 +132,7 @@ const CardGridPlatforms = ({url}) => {
 
                                     })
                                 }
-                            </> : <Skeleton/>
+                            </> : <SkeletonCard/>
                     }
                 </div>
             </div>
