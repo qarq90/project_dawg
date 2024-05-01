@@ -1,0 +1,66 @@
+.container {
+    /*display: flex;*/
+    /*gap: 1rem;*/
+    /*flex-direction: column;*/
+}
+
+.container > h1 {
+    font-size: 72px;
+    line-height: 74px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.dropdownContainer {
+    margin-top: 1rem;
+}
+
+.dropdownContainer > select {
+    border: none;
+    outline: none;
+    width: auto;
+    min-width: 150px;
+    padding-block: 10px;
+    padding-left: 10px;
+    box-shadow: 8px 0 0 var(--comp-bg-b);
+    background-color: var(--comp-bg-b);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--main-color);
+}
+
+.dropdownContainer > select:hover {
+    cursor: pointer;
+}
+
+.dropdownContainer > select > option:hover {
+    cursor: pointer;
+}
+
+.gamesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+}
+
+.gamesColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendarLinks {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.calendarLink {
+    color: var(--main-color);
+    opacity: .5;
+}
+
+.calendarLinkActive {
+    opacity: 1;
+}
+
