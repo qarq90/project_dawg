@@ -1,7 +1,25 @@
+'use client'
+
 import styledGlobal from "@/styles/pages/global.module.css"
 import CardGridPlatforms from "@/components/ui/CardGridPlatforms";
+import {useRouter} from "next/navigation.js";
+import {useEffect} from "react";
+import Cookies from "js-cookie";
 
 export default function PC() {
+    const router = useRouter()
+
+    useEffect(() => {
+        const autoLogin = async () => {
+            const storageUserID = Cookies.get("storageUserID") || ""
+
+            if (storageUserID === "") {
+                router.push("/auth/login")
+            }
+        }
+        autoLogin()
+
+    }, [])
     return (
         <div className={styledGlobal.container}>
             <h1>PC</h1>

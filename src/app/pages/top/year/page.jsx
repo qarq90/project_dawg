@@ -1,7 +1,25 @@
+'use client'
+
 import styledGlobal from "@/styles/pages/global.module.css"
 import CardGrid from "@/components/ui/CardGrid.jsx";
+import {useEffect} from "react";
+import Cookies from "js-cookie";
+import {useRouter} from "next/navigation";
 
 export default function Year() {
+    const router = useRouter()
+
+    useEffect(() => {
+        const autoLogin = async () => {
+            const storageUserID = Cookies.get("storageUserID") || ""
+
+            if (storageUserID === "") {
+                router.push("/auth/login")
+            }
+        }
+        autoLogin()
+
+    }, [])
     return (
         <div className={styledGlobal.container}>
             <h1>Best of the Year</h1>

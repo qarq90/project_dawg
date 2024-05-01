@@ -1,7 +1,25 @@
+'use client'
+
 import styledGlobal from "@/styles/pages/global.module.css";
 import CardGridX from "@/components/ui/CardGridX.jsx";
+import {useRouter} from "next/navigation.js";
+import {useEffect} from "react";
+import Cookies from "js-cookie";
 
 export default function Genres() {
+    const router = useRouter()
+
+    useEffect(() => {
+        const autoLogin = async () => {
+            const storageUserID = Cookies.get("storageUserID") || ""
+
+            if (storageUserID === "") {
+                router.push("/auth/login")
+            }
+        }
+        autoLogin()
+
+    }, [])
     return (
         <div className={styledGlobal.container}>
             <h1>Genres</h1>
