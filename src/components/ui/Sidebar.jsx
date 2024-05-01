@@ -45,9 +45,6 @@ export const Sidebar = () => {
                 }
             </ul>
             <ul className={styledSidebar.sidebarUL}>
-                <Link className={styledSidebar.linkHeader} href="/pages/allGames">All Games</Link>
-            </ul>
-            <ul className={styledSidebar.sidebarUL}>
                 <h1 className={styledSidebar.linkHeader}>Browse</h1>
                 {
                     sidebarBrowse.map((link, index) => (
