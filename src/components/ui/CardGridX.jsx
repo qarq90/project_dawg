@@ -15,10 +15,6 @@ const CardGridX = ({url}) => {
             const data = await res.json()
             console.clear()
             const tez = data.results[0]
-            for (const key in tez) {
-                console.log("Key: " + key);
-            }
-            console.log(tez.games)
             setCards(data.results)
         } catch (error) {
             alert(error + " - Failed to fetch games. Please Reload Page...")
