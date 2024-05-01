@@ -269,6 +269,13 @@ export const Card = (props) => {
         }
     }
 
+    function formatNumber(number) {
+        let numberString = number.toString();
+        let parts = numberString.split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    }
+
     return (
         <>
             <div
@@ -340,7 +347,7 @@ export const Card = (props) => {
                                     <rect width="3" height="12" x="4.5" rx=".75" transform="rotate(-90 6 6)"></rect>
                                 </g>
                             </svg>
-                            {likes}k
+                            {formatNumber(likes)}
                         </button>
                         <button style={{opacity: fullCard ? 1 : 0}} onClick={gameWishlistHandler}>
                             <svg className="SVGInline-svg game-card-button__icon-svg game-card-button__icon_20-svg"

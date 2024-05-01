@@ -57,7 +57,7 @@ const Nav = () => {
                                         {username.charAt(0).toUpperCase() + username.charAt(1).toUpperCase()}
                                     </p>
                                 </Link>
-                                <Link href='/pages/profile/profile'>LIBRARY</Link>
+                                <Link href='/auth/logout'>LOG OUT</Link>
                             </>
                     }
                 </div>

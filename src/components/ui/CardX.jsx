@@ -17,6 +17,13 @@ export const CardX = (props) => {
         return str.length > n ? str.substr(0, n - 1) + "..." : str
     }
 
+    function formatNumber(number) {
+        let numberString = number.toString();
+        let parts = numberString.split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    }
+
     return (
         <div
             className={s.card}
@@ -32,7 +39,7 @@ export const CardX = (props) => {
             <div className={s.cardBottom}>
                 <div className={s.popItemTitle}>
                     <div className={s.popItemTitleText}>Popular Items</div>
-                    <div className={s.popItemCount}>{count}</div>
+                    <div className={s.popItemCount}>{formatNumber(count)}</div>
                 </div>
                 <div className={s.popItems}>
                     {
@@ -41,7 +48,7 @@ export const CardX = (props) => {
                                 <div className={s.popItem} key={index}>
                                     <Link href={`/game/about/${item.slug}`}
                                           className={s.popItemLink}>{ellipsis(item.name)}</Link>
-                                    <div className={s.popItemCount}>{item.added} <span className={s.userIcon}></span>
+                                    <div className={s.popItemCount}>{formatNumber(item.added)} <span className={s.userIcon}></span>
                                     </div>
                                 </div>
                             )
