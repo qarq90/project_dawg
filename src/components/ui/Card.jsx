@@ -43,7 +43,7 @@ export const Card = (props) => {
     const [email] = useAtom(currentUserEmail)
 
     function getRemoveFromValue() {
-        const currentPath = window.location.pathname;
+        const currentPath = pathname;
 
         switch (currentPath) {
             case '/pages/profile/liked':
