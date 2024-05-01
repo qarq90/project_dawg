@@ -18,7 +18,8 @@ const Nav = () => {
 
     const handleKeyDown = (event) => {
         if (event.key === "Enter") {
-            let tag = searchedGame.replace(/\s+/g, '-');
+
+            let tag = searchedGame.toLowerCase().replace(/\s+/g, '-');
             router.push(`/game/about/${tag}`)
         }
     }
