@@ -12,7 +12,7 @@
 .card:hover {
     z-index: 100000;
     scale: 1.01;
-    position: relative;
+    /*position: relative;*/
 }
 
 .cardTop {
