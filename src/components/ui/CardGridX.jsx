@@ -17,7 +17,7 @@ const CardGridX = ({url}) => {
             const tez = data.results[0]
             setCards(data.results)
         } catch (error) {
-            alert(error + " - Failed to fetch games. Please Reload Page...")
+            router.reload()
         }
     }
 

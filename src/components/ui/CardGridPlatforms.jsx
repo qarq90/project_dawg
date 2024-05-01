@@ -15,7 +15,7 @@ const CardGridPlatforms = ({url}) => {
             const data = await res.json()
             setCards(data.results)
         } catch (error) {
-            alert(error + " - Failed to fetch games. Please Reload Page...")
+            router.reload()
         }
     }
 

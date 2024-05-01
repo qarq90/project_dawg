@@ -110,7 +110,7 @@ export default function ProfileTabGrid({url, type}) {
                                 return false;
                             });
                         } catch (error) {
-                            alert(error + " - Failed to fetch games. Please Reload Page...")
+                            router.reload()
                         }
                     });
                 }

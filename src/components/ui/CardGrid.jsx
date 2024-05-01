@@ -5,6 +5,7 @@ import {Card} from "@/components/ui/Card";
 import {useEffect, useState} from "react";
 import {SkeletonCard} from "@/components/ui/Skeleton";
 import {formatDate} from "@/lib/helper.js";
+import {router} from "next/client.js";
 
 const CardGrid = ({url}) => {
 
@@ -16,7 +17,7 @@ const CardGrid = ({url}) => {
             const data = await res.json()
             setCards(data.results)
         } catch (error) {
-            alert(error + " - Failed to fetch games. Please Reload Page...")
+            router.reload()
         }
     }
 
