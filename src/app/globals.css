@@ -78,6 +78,11 @@ a {
     scrollbar-color: var(--comp-bg-c) var(--comp-bg-b);
 }
 
-*::selection{
+*::selection {
     background-color: var(--comp-bg-a);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }

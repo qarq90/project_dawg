@@ -99,9 +99,9 @@ export default function AboutGame({params}) {
                     >
                     </div>
                     <div className={styledDetails.container}>
-                        <Link href={gameDetails.website}
+                        <Link href={gameDetails?.website ? gameDetails.website : ''}
                               target='_blank'
-                              className={styledDetails.gameTitle}>{gameDetails.name}</Link>
+                              className={styledDetails.gameTitle}>{gameDetails?.name}</Link>
                         <GameNav/>
                         <div className={styledDetails.gameDesc}>
                             <p>{gameDescription[0] + gameDescription[1] + gameDescription[2] + gameDescription[3]}</p>
@@ -131,17 +131,22 @@ export default function AboutGame({params}) {
                         <div className={styledDetails.gameDetails}>
                             <div className={styledDetails.gameDescription}>
                                 <div>
-                                    <h3><GenreIcon/> Genre</h3>
-                                    <div className={styledDetails.attributeValue}>
-                                        {gameDetails.genres.map(genre => (
-                                            <span key={genre.id}> {genre.name}</span>
-                                        ))}
-                                    </div>
+                                    {
+                                        gameDetails?.genres?.length !== 0 ?
+                                            <>
+                                                <h3><GenreIcon/> Genre</h3>
+                                                <div className={styledDetails.attributeValue}>
+                                                    {gameDetails?.genres?.map(genre => (
+                                                        <span key={genre.id}> {genre.name}</span>
+                                                    ))}
+                                                </div>
+                                            </> : <></>
+                                    }
                                 </div>
                                 <div>
                                     <h3><ControllerIcon/> Platforms</h3>
                                     <div className={styledDetails.attributeValue}>
-                                        {gameDetails.parent_platforms.map(platform => (
+                                        {gameDetails?.parent_platforms?.map(platform => (
                                             <span key={platform.id}>{platform.platform.name}</span>
                                         ))}
                                     </div>
@@ -149,7 +154,7 @@ export default function AboutGame({params}) {
                                 <div>
                                     <h3><UserIcon/> Age</h3>
                                     {
-                                        gameDetails.esrb_rating ?
+                                        gameDetails?.esrb_rating ?
                                             <div className={styledDetails.attributeValue}>
                                                 <span>{gameDetails?.esrb_rating?.name}</span>
                                             </div>
@@ -166,9 +171,9 @@ export default function AboutGame({params}) {
                                     <div className={styledDetails.detailsGrid}>
 
                                         {
-                                            gameDetails.rating ?
+                                            gameDetails?.rating ?
                                                 <>
-                                                    {gameDetails.ratings.map((rating, index) => (
+                                                    {gameDetails?.ratings.map((rating, index) => (
                                                         <div className={styledDetails.attributeValue} key={index}>
                                                             <span>{rating.title.charAt(0).toUpperCase() + rating.title.slice(1).toLowerCase()}: </span>
                                                             <span>{rating.count}k</span>
@@ -186,11 +191,11 @@ export default function AboutGame({params}) {
                                 <div>
                                     <h3><CalendarIcon/> Released Date</h3>
                                     {
-                                        gameDetails.released ?
+                                        gameDetails?.released ?
                                             <>
                                                 <div className={styledDetails.attributeValue}>
                                             <span
-                                                className={styledDetails.gameDescription}>{gameDetails.released}
+                                                className={styledDetails.gameDescription}>{gameDetails?.released}
                                             </span>
                                                 </div>
                                             </> :
@@ -206,7 +211,7 @@ export default function AboutGame({params}) {
                                 <div>
                                     <h3><DevelopersIcon/> Developed By</h3>
                                     <div className={styledDetails.attributeValue}>
-                                        {gameDetails.developers.slice(0, 1).map(developer => (
+                                        {gameDetails?.developers?.slice(0, 1).map(developer => (
                                             <span key={developer.id}>{developer.name} </span>
                                         ))}
                                     </div>
@@ -214,7 +219,7 @@ export default function AboutGame({params}) {
                                 <div>
                                     <h3><PublisherIcon/> Published By</h3>
                                     <div className={styledDetails.attributeValue}>
-                                        {gameDetails.publishers.map(publisher => (
+                                        {gameDetails?.publishers?.map(publisher => (
                                             <span key={publisher.id}>{publisher.name}</span>
                                         ))}
                                     </div>
@@ -222,11 +227,11 @@ export default function AboutGame({params}) {
                                 <div>
                                     <h3><HashtagIcon/> Tags</h3>
                                     {
-                                        gameDetails.tags.length !== 0 ?
+                                        gameDetails?.tags?.length !== 0 ?
                                             <div className={styledDetails.attributeValue}
                                                  id={styledDetails.tagValues}>
 
-                                                {gameDetails.tags.slice(0, 12).map(tag => (
+                                                {gameDetails?.tags?.slice(0, 12).map(tag => (
                                                     <span key={tag.id}>{tag.name}</span>
                                                 ))}
                                             </div> :
