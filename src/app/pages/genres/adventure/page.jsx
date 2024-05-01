@@ -1,3 +1,5 @@
+'use client'
+
 import styledGlobal from "@/styles/pages/global.module.css"
 import CardGridGenres from "@/components/ui/CardGridGenres";
 import {useRouter} from "next/navigation.js";
