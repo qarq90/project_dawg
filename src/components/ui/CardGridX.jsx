@@ -4,6 +4,7 @@ import styledGlobal from "@/styles/pages/global.module.css";
 import {useEffect, useState} from "react";
 import {SkeletonCard} from "@/components/ui/Skeleton";
 import {CardX} from "@/components/ui/CardX.jsx";
+import {router} from "next/client.js";
 
 const CardGridX = ({url}) => {
 
