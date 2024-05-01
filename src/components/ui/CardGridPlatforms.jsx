@@ -37,6 +37,8 @@ const CardGridPlatforms = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 0 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -62,6 +64,8 @@ const CardGridPlatforms = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 1 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -87,6 +91,8 @@ const CardGridPlatforms = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 2 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
@@ -112,6 +118,8 @@ const CardGridPlatforms = ({url}) => {
                                     cards.map((card, index) => {
                                         return index % 4 === 3 ? (
                                             <Card
+                                                id={card.id}
+                                                slug={card.slug}
                                                 key={index}
                                                 gameName={card.name}
                                                 genres={card.genres}
