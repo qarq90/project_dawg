@@ -100,7 +100,6 @@ export const Card = (props) => {
             console.log(error);
         }
 
-        console.log('liked')
     }
 
     async function gameWishlistHandler(e) {
@@ -147,7 +146,6 @@ export const Card = (props) => {
             console.log(error);
         }
 
-        console.log('wishlist')
     }
 
     async function gameOwnedHandler(e) {
@@ -194,7 +192,6 @@ export const Card = (props) => {
             console.log(error);
         }
 
-        console.log('owned')
     }
 
     async function gameRemoveHandler(e) {
@@ -205,8 +202,6 @@ export const Card = (props) => {
             game_id: id.toString(),
             removeFrom: getRemoveFromValue()
         };
-
-        console.log(request)
 
         try {
             const response = await fetch(`/api/pages/post/profile/removeGame`, {

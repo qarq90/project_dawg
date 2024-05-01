@@ -13,8 +13,6 @@ const CardGridPGenres = ({url}) => {
         try {
             const res = await fetch(url)
             const data = await res.json()
-            console.log(data.results[0])
-            console.log(url)
             setCards(data.results)
         } catch (error) {
             alert(error + " - Failed to fetch games. Please Reload Page...")
