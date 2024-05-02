@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dawg: A Dynamic Gaming Hub
+
+Welcome to Dawg, your ultimate destination for everything gaming-related. Built with Next.js and MongoDB, Dawg offers a seamless experience for gamers of all levels.
+
+## Features
+
+- Explore a vast collection of games across genres, from action to adventure and beyond.
+- Manage your wishlist and keep track of your favorite games.
+- Dive into detailed game pages to learn about game descriptions, ratings, screenshots, reviews, and system requirements.
+- Enjoy secure user authentication for personalized experiences and data privacy.
+
+![image](https://github.com/qarq90/qarq90/assets/124421417/6f88c8b6-03d6-4190-ae8d-10d3eea23419)
 
 ## Getting Started
 
-First, run the development server:
+To get started with Dawg, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone this repository.
+2. Install dependencies by running `npm install`.
+3. Set up your MongoDB database.
+4. Configure your environment variables.
+5. Run the development server using `npm run dev`.
+6. Start exploring Dawg and enhancing your gaming experience!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.jsx`. The page auto-updates as you edit the file.
+- Next.js
+- MongoDB
+- React
+- Node.js
+- Express
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contributing
 
-## Learn More
+Contributions are welcome! Please feel free to submit pull requests or open issues for any improvements or features you'd like to see in Dawg.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
