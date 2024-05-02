@@ -292,47 +292,37 @@ export const Card = (props) => {
                 <div className={styledCard.cardBottom}>
                     <div className={styledCard.cardIconContainer}>
                         {platforms?.map((pl, index) => {
+                            let icon = null;
                             switch (pl.platform.name) {
                                 case "PC":
-                                    return (
-                                        <div className={styledCard.cardIcon} key={index}>
-                                            <WindowsIcon key={index}/>
-                                        </div>
-                                    )
+                                    icon = <WindowsIcon/>;
+                                    break;
                                 case "PlayStation":
-                                    return (
-                                        <div className={styledCard.cardIcon} key={index}>
-                                            <PlaystationIcon key={index}/>
-                                        </div>
-                                    )
+                                    icon = <PlaystationIcon/>;
+                                    break;
                                 case "Xbox":
-                                    return (
-                                        <div className={styledCard.cardIcon} key={index}>
-                                            <XBoxIcon key={index}/>
-                                        </div>
-                                    )
+                                    icon = <XBoxIcon/>;
+                                    break;
                                 case "Android":
-                                    return (
-                                        <div className={styledCard.cardIcon} key={index}>
-                                            <AndroidIcon key={index}/>
-                                        </div>
-                                    )
+                                    icon = <AndroidIcon/>;
+                                    break;
                                 case "Nintendo":
-                                    return (
-                                        <div className={styledCard.cardIcon} key={index}>
-                                            <NintendoIcon key={index}/>
-                                        </div>
-                                    )
+                                    icon = <NintendoIcon/>;
+                                    break;
                                 case "iOS":
-                                    return (
-                                        <div className={styledCard.cardIcon} key={index}>
-                                            <AppleIcon key={index}/>
-                                        </div>
-                                    )
-
+                                    icon = <AppleIcon/>;
+                                    break;
                                 default:
-                                    return null
+                                    icon = null;
                             }
+                            if (icon) {
+                                return (
+                                    <div className={styledCard.cardIcon} key={`platform_${pl.platform.name}_${index}`}>
+                                        {icon}
+                                    </div>
+                                );
+                            }
+                            return null;
                         })}
                     </div>
                     <div className={styledCard.cardText}>
@@ -390,14 +380,14 @@ export const Card = (props) => {
                                     genres?.map((genre, index) => {
                                         if (index === genres.length - 1) {
                                             return (
-                                                <Link key={index} href={"/genres/" + genre.slug}>
+                                                <Link key={`platform_${index}`} href={"/genres/" + genre.slug}>
                                                     {genre.name}
                                                 </Link>
                                             )
                                         }
                                         return (
                                             <>
-                                                <Link key={index} href={"/genres/" + genre.slug}>
+                                                <Link key={`platform_${index}`} href={"/genres/" + genre.slug}>
                                                     {genre.name}
                                                 </Link>,
                                                 &nbsp;

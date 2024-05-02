@@ -8,20 +8,29 @@ import {SkeletonCard} from "@/components/ui/Skeleton";
 const CardGridPGenres = ({url}) => {
 
     const [cards, setCards] = useState([])
+    const [pageNumber, setPageNumber] = useState(1);
 
     const getGames = async () => {
         try {
-            const res = await fetch(url)
-            const data = await res.json()
-            setCards(data.results)
+            const res = await fetch(url + `&page=${pageNumber}`);
+            const data = await res.json();
+            const newGames = data.results;
+
+            setCards(prevState => {
+                const uniqueGameIds = new Set(prevState.map(game => game.id));
+                const filteredGames = newGames.filter(game => !uniqueGameIds.has(game.id));
+                return [...prevState, ...filteredGames];
+            });
         } catch (error) {
+            console.error('Error fetching games:', error);
             await getGames()
         }
-    }
+    };
+
 
     useEffect(() => {
         getGames().then(r => console.log("Games Fetched"));
-    }, []);
+    }, [pageNumber]);
 
 
     return (
@@ -135,6 +144,14 @@ const CardGridPGenres = ({url}) => {
                             </> : <SkeletonCard/>
                     }
                 </div>
+            </div>
+            <div className={styledGlobal.bottomContainer}>
+                <button
+                    className={styledGlobal.loadMore}
+                    onClick={() => setPageNumber(prevState => prevState + 1)}
+                >
+                    Load More
+                </button>
             </div>
         </>
     )
