@@ -4,7 +4,6 @@ import styledGlobal from "@/styles/pages/global.module.css";
 import {useEffect, useState} from "react";
 import {SkeletonCard} from "@/components/ui/Skeleton";
 import {CardX} from "@/components/ui/CardX.jsx";
-import {router} from "next/navigation.js";
 
 const CardGridX = ({url}) => {
 
@@ -14,11 +13,10 @@ const CardGridX = ({url}) => {
         try {
             const res = await fetch(url)
             const data = await res.json()
-            console.clear()
             const tez = data.results[0]
             setCards(data.results)
         } catch (error) {
-            router.reload()
+            await getGames()
         }
     }
 

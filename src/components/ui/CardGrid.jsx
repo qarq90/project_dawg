@@ -2,7 +2,7 @@
 
 import styledGlobal from "@/styles/pages/global.module.css";
 import {Card} from "@/components/ui/Card";
-import {useEffect, useReducer, useState} from "react";
+import {useEffect, useState} from "react";
 import {SkeletonCard} from "@/components/ui/Skeleton";
 import {formatDate} from "@/lib/helper.js";
 import {router} from "next/navigation.js";
@@ -17,7 +17,7 @@ const CardGrid = ({url}) => {
             const data = await res.json()
             setCards(data.results)
         } catch (error) {
-            router.reload()
+            await getGames()
         }
     }
 
