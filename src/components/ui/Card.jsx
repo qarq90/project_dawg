@@ -278,7 +278,8 @@ export const Card = (props) => {
 
     return (
         <>
-            <div
+            <Link
+                href={`/game/about/${tag}`}
                 className={styledCard.card}
                 onMouseEnter={() => setFullCard(true)}
                 onMouseLeave={() => setFullCard(false)}
@@ -412,7 +413,7 @@ export const Card = (props) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Link>
             <Toast ref={toastRef} position="top-right"/>
         </>
     )

@@ -1,5 +1,9 @@
 export const emailRegex = /^[\w-]+(\.[\w-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/
 
+export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+const now = new Date();
+
 export const showCustomToast = (severity, summary, detail, content, toastRef, life) => {
     const options = {
         severity: severity, summary: summary, detail: detail, content: content
@@ -84,3 +88,28 @@ export function formatDate(inputDate) {
     const options = {month: 'short', day: '2-digit', year: 'numeric'};
     return date.toLocaleDateString('en-US', options);
 }
+
+export const getDates = () => {
+    const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
+    const date = now.toISOString().split('T')[0];
+    const lastMonthDate = lastMonth.toISOString().split('T')[0];
+    return `${lastMonthDate},${date}`
+}
+
+export const getMonthDates = (params) => {
+    const startMonth = new Date(now.getFullYear(), months.indexOf(params.month), 1);
+    const startDate = startMonth.toISOString().split('T')[0];
+    const endMonth = new Date(now.getFullYear(), months.indexOf(params.month), 30);
+    const endDate = endMonth.toISOString().split('T')[0];
+    return `${startDate},${endDate}`
+}
+
+export const currentYear = new Date().getFullYear();
+const currentMonth = String(new Date().getMonth() + 1).padStart(2, '0');
+const currentDay = String(new Date().getDate()).padStart(2, '0');
+
+export const bestOfFrom = (currentYear - 1).toString() + '-' + currentMonth + '-' + currentDay;
+export const bestOfTo = (currentYear).toString() + '-' + currentMonth + '-' + currentDay;
+
+export const lastYearFrom = (currentYear - 1).toString() + '-01-01';
+export const lastYearTo = (currentYear - 1).toString() + '-12-31';

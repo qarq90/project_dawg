@@ -5,6 +5,7 @@ import CardGrid from "@/components/ui/CardGrid.jsx";
 import {useRouter} from "next/navigation.js";
 import {useEffect} from "react";
 import Cookies from "js-cookie";
+import {getDates} from "@/lib/helper.js";
 
 export default function Latest() {
     const router = useRouter()
@@ -20,13 +21,7 @@ export default function Latest() {
         autoLogin()
 
     }, [])
-    const getDates = () => {
-        const now = new Date();
-        const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
-        const date = now.toISOString().split('T')[0];
-        const lastMonthDate = lastMonth.toISOString().split('T')[0];
-        return `${lastMonthDate},${date}`
-    }
+
 
     return (
         <div className={styledGlobal.container}>
