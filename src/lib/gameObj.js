@@ -1,8 +1,8 @@
 export const gameTabs = (slug) => [
-    { href: `/game/about/${slug}`, label: 'ABOUT' },
-    { href: `/game/scrnshot/${slug}`, label: 'SCREENSHOTS' },
-    { href: `/game/req/${slug}`, label: 'REQUIREMENTS' },
-    { href: `/game/reviews/${slug}`, label: 'REVIEWS' },
+    { href: `/game/${slug}`, label: 'ABOUT' },
+    { href: `/game/${slug}/scrnshot`, label: 'SCREENSHOTS' },
+    { href: `/game/${slug}/req`, label: 'REQUIREMENTS' },
+    { href: `/game/${slug}/reviews`, label: 'REVIEWS' },
 ];
 
 export const imageCaptions = [

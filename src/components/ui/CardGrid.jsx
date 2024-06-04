@@ -5,6 +5,8 @@ import {Card} from "@/components/ui/Card";
 import {useEffect, useState} from "react";
 import {SkeletonCard} from "@/components/ui/Skeleton";
 import {formatDate} from "@/lib/helper.js";
+import * as PropTypes from "prop-types";
+import {LoadMore} from "@/components/ui/LoadMore.jsx";
 
 const CardGrid = ({url}) => {
 
@@ -145,14 +147,7 @@ const CardGrid = ({url}) => {
                     }
                 </div>
             </div>
-            <div className={styledGlobal.bottomContainer}>
-                <button
-                    className={styledGlobal.loadMore}
-                    onClick={() => setPageNumber(prevState => prevState + 1)}
-                >
-                    Load More
-                </button>
-            </div>
+            <LoadMore onClick={() => setPageNumber(prevState => prevState + 1)}/>
         </>
     )
 }

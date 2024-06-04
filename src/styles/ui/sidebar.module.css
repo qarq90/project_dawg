@@ -3,11 +3,10 @@
     padding-top: 40px;
     padding-inline: 40px 20px;
     width: fit-content;
-    height: 80vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-y: scroll;
 }
 
 .sidebarUL {

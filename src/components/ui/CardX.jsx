@@ -33,7 +33,7 @@ export const CardX = (props) => {
         >
             <div className={s.cardTop}>
                 <div className={s.cardText}>
-                    <Link href={`/game/about/${slug}`}>{name}</Link>
+                    <Link href={`/game/${slug}`}>{name}</Link>
                 </div>
             </div>
             <div className={s.cardBottom}>
@@ -46,7 +46,7 @@ export const CardX = (props) => {
                         items?.slice(0, 3).map((item, index) => {
                             return (
                                 <div className={s.popItem} key={index}>
-                                    <Link href={`/game/about/${item.slug}`}
+                                    <Link href={`/game/${item.slug}`}
                                           className={s.popItemLink}>{ellipsis(item.name)}</Link>
                                     <div className={s.popItemCount}>{formatNumber(item.added)} <span className={s.userIcon}></span>
                                     </div>

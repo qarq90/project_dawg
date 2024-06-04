@@ -279,7 +279,7 @@ export const Card = (props) => {
     return (
         <>
             <Link
-                href={`/game/about/${tag}`}
+                href={`/game/${tag}`}
                 className={styledCard.card}
                 onMouseEnter={() => setFullCard(true)}
                 onMouseLeave={() => setFullCard(false)}
