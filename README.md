@@ -9,7 +9,7 @@ Welcome to Dawg, your ultimate destination for everything gaming-related. Built 
 - Dive into detailed game pages to learn about game descriptions, ratings, screenshots, reviews, and system requirements.
 - Enjoy secure user authentication for personalized experiences and data privacy.
 
-![image](https://github.com/qarq90/qarq90/assets/124421417/6f88c8b6-03d6-4190-ae8d-10d3eea23419)
+![image](https://github.com/qarq90/project_dawg/assets/124421417/827c3843-27b0-4119-8952-64f24e015db7)
 
 ## Getting Started
 
