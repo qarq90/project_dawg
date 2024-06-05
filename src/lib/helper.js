@@ -5,103 +5,103 @@ export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', '
 const now = new Date();
 
 export const showCustomToast = (severity, summary, detail, content, toastRef, life) => {
-    const options = {
-        severity: severity, summary: summary, detail: detail, content: content
-    }
+	const options = {
+		severity: severity, summary: summary, detail: detail, content: content
+	}
 
-    options.life = life
+	options.life = life
 
-    toastRef.current.show(options)
+	toastRef.current.show(options)
 }
 
 export function splitTextIntoSentences(text, maxCharacters = 20) {
-    const sentences = [];
-    let startIndex = 0;
+	const sentences = [];
+	let startIndex = 0;
 
-    while (startIndex < text.length) {
-        let endOfSentence = -1;
+	while (startIndex < text.length) {
+		let endOfSentence = -1;
 
-        for (let i = startIndex + maxCharacters; i < text.length; i++) {
-            if (text[i] === '.' || text[i] === '!') {
-                endOfSentence = i;
-                break;
-            }
-        }
+		for (let i = startIndex + maxCharacters; i < text.length; i++) {
+			if (text[i] === '.' || text[i] === '!') {
+				endOfSentence = i;
+				break;
+			}
+		}
 
-        if (endOfSentence === -1) {
-            break;
-        }
+		if (endOfSentence === -1) {
+			break;
+		}
 
-        const sentence = text.substring(startIndex, endOfSentence + 1).trim();
-        sentences.push(sentence + " ");
+		const sentence = text.substring(startIndex, endOfSentence + 1).trim();
+		sentences.push(sentence + " ");
 
-        startIndex = endOfSentence + 1;
-    }
+		startIndex = endOfSentence + 1;
+	}
 
-    if (startIndex < text.length) {
-        const remainingSentence = text.substring(startIndex).trim();
-        sentences.push(remainingSentence);
-    }
+	if (startIndex < text.length) {
+		const remainingSentence = text.substring(startIndex).trim();
+		sentences.push(remainingSentence);
+	}
 
-    return sentences;
+	return sentences;
 }
 
 export function removeSpecialCharacters(inputString) {
 
-    if (typeof inputString !== 'string') {
-        return '';
-    }
+	if (typeof inputString !== 'string') {
+		return '';
+	}
 
-    const withoutTags = inputString.replace(/<\/?[^>]+(>|$)/g, '');
+	const withoutTags = inputString.replace(/<\/?[^>]+(>|$)/g, '');
 
-    const cleanedString = withoutTags.replace(/[^\w\s.]/gi, '');
+	const cleanedString = withoutTags.replace(/[^\w\s.]/gi, '');
 
-    const maxLength = 150;
+	const maxLength = 150;
 
-    if (cleanedString.length <= maxLength) {
-        return cleanedString;
-    }
+	if (cleanedString.length <= maxLength) {
+		return cleanedString;
+	}
 
-    let truncatedText = cleanedString.substring(0, maxLength);
-    const sentenceEndIndex = truncatedText.lastIndexOf('.');
+	let truncatedText = cleanedString.substring(0, maxLength);
+	const sentenceEndIndex = truncatedText.lastIndexOf('.');
 
-    if (sentenceEndIndex !== -1 && sentenceEndIndex >= maxLength - 1) {
+	if (sentenceEndIndex !== -1 && sentenceEndIndex >= maxLength - 1) {
 
-        truncatedText = truncatedText.substring(0, sentenceEndIndex + 1);
+		truncatedText = truncatedText.substring(0, sentenceEndIndex + 1);
 
-    } else {
-        const nextSentenceBreak = cleanedString.indexOf('.', maxLength);
+	} else {
+		const nextSentenceBreak = cleanedString.indexOf('.', maxLength);
 
-        if (nextSentenceBreak !== -1) {
-            truncatedText = cleanedString.substring(0, nextSentenceBreak + 1);
-        } else {
-            truncatedText = cleanedString.substring(0, maxLength);
-        }
+		if (nextSentenceBreak !== -1) {
+			truncatedText = cleanedString.substring(0, nextSentenceBreak + 1);
+		} else {
+			truncatedText = cleanedString.substring(0, maxLength);
+		}
 
-    }
+	}
 
-    return truncatedText.trim();
+	return truncatedText.trim();
 }
 
 export function formatDate(inputDate) {
-    const date = new Date(inputDate);
-    const options = {month: 'short', day: '2-digit', year: 'numeric'};
-    return date.toLocaleDateString('en-US', options);
+	const date = new Date(inputDate);
+	const options = {month: 'short', day: '2-digit', year: 'numeric'};
+	return date.toLocaleDateString('en-US', options);
 }
 
 export const getDates = () => {
-    const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
-    const date = now.toISOString().split('T')[0];
-    const lastMonthDate = lastMonth.toISOString().split('T')[0];
-    return `${lastMonthDate},${date}`
+	const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
+	const date = now.toISOString().split('T')[0];
+	const lastMonthDate = lastMonth.toISOString().split('T')[0];
+	return `${lastMonthDate},${date}`
 }
 
 export const getMonthDates = (params) => {
-    const startMonth = new Date(now.getFullYear(), months.indexOf(params.month), 1);
-    const startDate = startMonth.toISOString().split('T')[0];
-    const endMonth = new Date(now.getFullYear(), months.indexOf(params.month), 30);
-    const endDate = endMonth.toISOString().split('T')[0];
-    return `${startDate},${endDate}`
+	const startMonth = new Date(now.getFullYear(), months.indexOf(params.month), 1);
+	const startDate = startMonth.toISOString().split('T')[0];
+	const endMonth = new Date(now.getFullYear(), months.indexOf(params.month), 30);
+	const endDate = endMonth.toISOString().split('T')[0];
+	return `${startDate},${endDate}`
 }
 
 export const currentYear = new Date().getFullYear();

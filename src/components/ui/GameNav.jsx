@@ -4,7 +4,7 @@ import styledNav from '@/styles/ui/nav.module.css'
 import Link from "next/link";
 import {usePathname} from "next/navigation.js";
 import {gameTabs} from "@/lib/gameObj.js";
-import gameStore from "@/states/gameStore.js";
+import gameStore from "@/userStore/gameStore.js";
 
 export default function GameNav() {
 

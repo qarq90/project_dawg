@@ -3,7 +3,7 @@
 import s from "@/styles/pages/global.module.css"
 import Link from "next/link";
 import CardGrid from "@/components/ui/CardGrid.jsx";
-import useGameStore from "@/states/gameStore.js";
+import useGameStore from "@/userStore/gameStore.js";
 import {useEffect} from "react";
 
 export default function Calendar({params}) {

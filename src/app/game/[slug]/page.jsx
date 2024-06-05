@@ -11,7 +11,7 @@ import {PublisherIcon} from "../../../../public/icon/PublisherIcon.jsx";
 import {HashtagIcon} from "../../../../public/icon/HashtagIcon.jsx";
 import {UserIcon} from "../../../../public/icon/UserIcon.jsx";
 import {ReviewIcon} from "../../../../public/icon/ReviewIcon.jsx";
-import useGameStore from "@/states/gameStore.js";
+import useGameStore from "@/userStore/gameStore.js";
 import {
 	SkeletonDescription,
 	SkeletonGameNav,

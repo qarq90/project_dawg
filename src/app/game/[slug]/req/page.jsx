@@ -7,7 +7,7 @@ import GameNav from "@/components/ui/GameNav.jsx";
 import Link from "next/link";
 import {WindowsIcon} from "../../../../../public/icon/WindowsIcon.jsx";
 import {AppleIcon} from "../../../../../public/icon/AppleIcon.jsx";
-import useGameStore from "@/states/gameStore.js";
+import useGameStore from "@/userStore/gameStore.js";
 import {SkeletonGameNav, SkeletonGridFour, SkeletonGridOne, SkeletonTitle} from "@/components/ui/Skeleton.jsx";
 
 export default function Requirements() {

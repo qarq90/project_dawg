@@ -6,7 +6,7 @@ import {useEffect} from "react";
 import Cookies from "js-cookie";
 import {useRouter} from "next/navigation";
 import {bestOfFrom, bestOfTo, currentDay, currentMonth} from "@/lib/helper.js";
-import useGameStore from "@/states/gameStore.js";
+import useGameStore from "@/userStore/gameStore.js";
 
 export default function Year() {
 	const router = useRouter()

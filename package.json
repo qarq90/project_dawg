@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "jotai": "^2.8.0",
+    "axios": "^1.7.2",
     "js-cookie": "^3.0.5",
     "mongoose": "^8.3.2",
     "next": "14.2.2",

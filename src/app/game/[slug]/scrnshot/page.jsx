@@ -5,7 +5,7 @@ import {useEffect} from "react";
 import GameNav from "@/components/ui/GameNav.jsx";
 import Link from "next/link";
 import {imageCaptions} from "@/lib/gameObj.js";
-import useGameStore from "@/states/gameStore.js";
+import useGameStore from "@/userStore/gameStore.js";
 import {SkeletonBanner, SkeletonGameNav, SkeletonGridImage, SkeletonTitle} from "@/components/ui/Skeleton.jsx";
 
 export default function ScreenShot() {

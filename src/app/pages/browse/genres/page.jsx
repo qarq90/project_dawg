@@ -5,7 +5,7 @@ import CardGridX from "@/components/ui/CardGridX.jsx";
 import {useRouter} from "next/navigation.js";
 import {useEffect} from "react";
 import Cookies from "js-cookie";
-import useGameStore from "@/states/gameStore.js";
+import useGameStore from "@/userStore/gameStore.js";
 
 export default function Genres() {
 

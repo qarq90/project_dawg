@@ -3,17 +3,17 @@ import mongoose from 'mongoose'
 const {Schema} = mongoose
 
 const reviewSchema = new Schema({
-    email_id: String,
-    password: String,
-    user_name: String,
+	email_id: String,
+	password: String,
+	user_name: String,
 })
 
 let Users
 
 try {
-    Users = mongoose.model('Users')
+	Users = mongoose.model('Users')
 } catch (e) {
-    Users = mongoose.model('Users', reviewSchema)
+	Users = mongoose.model('Users', reviewSchema)
 }
 
 export default Users

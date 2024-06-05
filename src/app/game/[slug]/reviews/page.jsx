@@ -8,7 +8,7 @@ import Link from "next/link";
 import {ReviewIcon} from "../../../../../public/icon/ReviewIcon.jsx";
 import {removeSpecialCharacters} from "@/lib/helper.js";
 import {CalendarIcon} from "../../../../../public/icon/CalendarIcon.jsx";
-import useGameStore from "@/states/gameStore.js";
+import useGameStore from "@/userStore/gameStore.js";
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss.js";
 
 export default function Reviews() {

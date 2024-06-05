@@ -9,11 +9,10 @@ import {XBoxIcon} from "../../../public/icon/XBoxIcon";
 import {AndroidIcon} from "../../../public/icon/AndroidIcon";
 import {NintendoIcon} from "../../../public/icon/NintendoIcon";
 import {AppleIcon} from "../../../public/icon/AppleIcon";
-import {currentUserEmail} from "@/states/userState.jsx";
-import {useAtom} from "jotai";
 import {Toast} from "primereact/toast";
 import {showCustomToast} from "@/lib/helper.js";
 import {usePathname} from "next/navigation";
+import useUserStore from "@/userStore/userStore.js";
 
 export const Card = (props) => {
 
@@ -40,7 +39,7 @@ export const Card = (props) => {
 
     const tag = slug
 
-    const [email] = useAtom(currentUserEmail)
+    const {userEmail} = useUserStore()
 
     function getRemoveFromValue() {
         const currentPath = pathname;
@@ -61,7 +60,7 @@ export const Card = (props) => {
         e.preventDefault()
 
         const request = {
-            email_id: email,
+            email_id: userEmail,
             game_id: id.toString(),
             game_name: slug,
         };
@@ -107,7 +106,7 @@ export const Card = (props) => {
         e.preventDefault()
 
         const request = {
-            email_id: email,
+            email_id: userEmail,
             game_id: id.toString(),
             game_name: slug,
         };
@@ -153,7 +152,7 @@ export const Card = (props) => {
         e.preventDefault()
 
         const request = {
-            email_id: email,
+            email_id: userEmail,
             game_id: id.toString(),
             game_name: slug,
         };
@@ -199,7 +198,7 @@ export const Card = (props) => {
         e.preventDefault()
 
         const request = {
-            email_id: email,
+            email_id: userEmail,
             game_id: id.toString(),
             removeFrom: getRemoveFromValue()
         };

@@ -6,7 +6,7 @@ import {useRouter} from "next/navigation.js";
 import {useEffect} from "react";
 import Cookies from "js-cookie";
 import {lastYearFrom, lastYearTo} from "@/lib/helper.js";
-import useGameStore from "@/states/gameStore.js";
+import useGameStore from "@/userStore/gameStore.js";
 
 export default function Popular() {
 

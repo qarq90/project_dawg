@@ -6,10 +6,12 @@ import {useEffect} from "react";
 import Cookies from "js-cookie";
 
 export default function WishlistPage() {
+
     const router = useRouter()
 
     useEffect(() => {
         const autoLogin = async () => {
+
             const storageUserID = Cookies.get("storageUserID") || ""
 
             if (storageUserID === "") {

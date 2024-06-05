@@ -6,21 +6,23 @@ import {useEffect} from "react";
 import Cookies from "js-cookie";
 
 export default function ProfilePage() {
-    const router = useRouter()
 
-    useEffect(() => {
-        const autoLogin = async () => {
-            const storageUserID = Cookies.get("storageUserID") || ""
+	const router = useRouter()
 
-            if (storageUserID === "") {
-                router.push("/auth/login")
-            }
-        }
-        autoLogin()
+	useEffect(() => {
+		const autoLogin = async () => {
 
-    }, [])
-    const url = '/api/pages/post/profile/owned'
-    return (
-        <ProfileTabGrid url={url} type={"Owned Games"}/>
-    )
+			const storageUserID = Cookies.get("storageUserID") || ""
+
+			if (storageUserID === "") {
+				router.push("/auth/login")
+			}
+		}
+		autoLogin()
+
+	}, [])
+	const url = '/api/pages/post/profile/owned'
+	return (
+		<ProfileTabGrid url={url} type={"Owned Games"}/>
+	)
 }

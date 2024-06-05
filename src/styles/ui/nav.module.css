@@ -32,6 +32,7 @@
 
 .searchArea input:focus {
     outline: none;
+    color: var(--comp-bg-a);
 }
 
 .searchArea input {
@@ -42,10 +43,10 @@
     font-weight: 400;
     padding: 0 12px 0 38px;
     line-height: 14px;
-    color: hsla(0, 0%, 100%, .6);
+    color: var(--comp-bg-a);
     background: url("../../../public/icon/search_off.svg") no-repeat scroll 16px;
     background-size: 14px;
-    background-color: hsla(0, 0%, 100%, .16);
+    background-color: hsla(0, 0%, 100%, .25);
     border: none;
     -webkit-transition: color .3s, background-color .3s, opacity .3s;
     transition: color .3s, background-color .3s, opacity .3s, width .05s linear;
@@ -54,7 +55,7 @@
 .searchArea input:hover {
     background-image: url("../../../public/icon/search_on.svg");
     background-color: #FFFFFF;
-    color: #777;
+    color: var(--comp-bg-a);
 }
 
 .authBtnGroup {

@@ -44,9 +44,9 @@ export default function Puzzle() {
 	}, [])
 	return (
 		<div className={styledGlobal.container}>
-			<h1>Puzzle</h1>
+			<h1>Horror</h1>
 			<CardGridGenres
-				url={`https://api.rawg.io/api/games?key=${apiKey}&genres=7`}
+				url={`https://api.rawg.io/api/games?key=${apiKey}&genres=83`}
 			/>
 		</div>
 	)

@@ -1,19 +1,21 @@
 'use client'
 
 import styledGlobal from "@/styles/pages/global.module.css"
-import CardGrid from "@/components/ui/CardGrid"
 import {useEffect} from "react"
 import Cookies from "js-cookie"
 import {useRouter} from "next/navigation.js"
 import useGameStore from "@/userStore/gameStore.js"
 import useUserStore from "@/userStore/userStore.js";
+import CardGridSearch from "@/components/ui/CardGridSearch.jsx";
 
-export default function Home() {
+export default function Search({params}) {
 
 	const router = useRouter()
 
 	const {setUserEmail, setUserPassword, setUserName} = useUserStore()
 	const apiKey = process.env.NEXT_PUBLIC_RAWG_API_KEY;
+
+	const search = params.slug
 
 	const {
 		setGameId,
@@ -74,11 +76,10 @@ export default function Home() {
 	return (
 		<>
 			<div className={styledGlobal.container}>
-				<h1>Home</h1>
-				<CardGrid
-					url={`https://api.rawg.io/api/games?key=${apiKey}`}
+				<h1>Searched - {"'" + search + "'"}</h1>
+				<CardGridSearch
+					url={`https://api.rawg.io/api/games?search=${search}&key=${apiKey}`}
 				/>
-				{/*<SearchDropDown />*/}
 			</div>
 		</>
 	)

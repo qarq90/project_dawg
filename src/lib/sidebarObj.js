@@ -27,151 +27,156 @@ import {DevelopersIcon} from "../../public/icon/DevelopersIcon"
 import {PublisherIcon} from "../../public/icon/PublisherIcon"
 
 export const sidebarNewReleases = [
-    {
-        label: 'Last 30 days',
-        icon: <StarIcon/>,
-        path: '/pages/releases/latest',
-    },
-    {
-        label: 'Trending',
-        icon: <FireIcon/>,
-        path: '/pages/releases/trending',
-    },
-    {
-        label: 'Release Calendar',
-        icon: <CalendarIcon/>,
-        path: '/pages/releases/calendar',
-    },
+	{
+		label: 'Last 30 days',
+		icon: <StarIcon/>,
+		path: '/pages/releases/latest',
+	},
+	{
+		label: 'Trending',
+		icon: <FireIcon/>,
+		path: '/pages/releases/trending',
+	},
+	{
+		label: 'Release Calendar',
+		icon: <CalendarIcon/>,
+		path: '/pages/releases/calendar',
+	},
 ]
 
 export const sidebarTop = [
-    {
-        label: 'Best of the year',
-        icon: <TrophyIcon/>,
-        path: '/pages/top/year',
-    },
-    {
-        label: 'Popular in 2023',
-        icon: <BarChartIcon/>,
-        path: '/pages/top/popular',
-    },
-    {
-        label: 'All time top 20',
-        icon: <CrownIcon/>,
-        path: '/pages/top/allTime',
-    },
+	{
+		label: 'Best of the year',
+		icon: <TrophyIcon/>,
+		path: '/pages/top/year',
+	},
+	{
+		label: 'Popular in 2023',
+		icon: <BarChartIcon/>,
+		path: '/pages/top/popular',
+	},
+	{
+		label: 'All time top 20',
+		icon: <CrownIcon/>,
+		path: '/pages/top/allTime',
+	},
 ]
 
 export const sidebarPlatforms = [
-    {
-        label: 'PC',
-        icon: <WindowsIcon/>,
-        path: '/pages/platforms/pc',
-    },
-    {
-        label: 'Playstation',
-        icon: <PlaystationIcon/>,
-        path: '/pages/platforms/playstation',
-    },
-    {
-        label: 'XBox',
-        icon: <XBoxIcon/>,
-        path: '/pages/platforms/xbox',
-    },
-    {
-        label: 'Nintendo',
-        icon: <NintendoIcon/>,
-        path: '/pages/platforms/nintendo',
-    },
-    {
-        label: 'Android',
-        icon: <AndroidIcon/>,
-        path: '/pages/platforms/android',
-    },
-    {
-        label: 'IOS',
-        icon: <AppleIcon/>,
-        path: '/pages/platforms/apple',
-    },
+	{
+		label: 'PC',
+		icon: <WindowsIcon/>,
+		path: '/pages/platforms/pc',
+	},
+	{
+		label: 'Playstation',
+		icon: <PlaystationIcon/>,
+		path: '/pages/platforms/playstation',
+	},
+	{
+		label: 'XBox',
+		icon: <XBoxIcon/>,
+		path: '/pages/platforms/xbox',
+	},
+	{
+		label: 'Nintendo',
+		icon: <NintendoIcon/>,
+		path: '/pages/platforms/nintendo',
+	},
+	{
+		label: 'Android',
+		icon: <AndroidIcon/>,
+		path: '/pages/platforms/android',
+	},
+	{
+		label: 'IOS',
+		icon: <AppleIcon/>,
+		path: '/pages/platforms/apple',
+	},
 ]
 
 export const sidebarBrowse = [
-    {
-        label: 'Platforms',
-        icon: <ControllerIcon/>,
-        path: '/pages/browse/platforms',
-    },
-    {
-        label: 'Stores',
-        icon: <DownloadIcon/>,
-        path: '/pages/browse/stores',
-    },
-    {
-        label: 'Genres',
-        icon: <GenreIcon/>,
-        path: '/pages/browse/genres',
-    },
-    {
-        label: 'Creators',
-        icon: <UserIcon/>,
-        path: '/pages/browse/creators',
-    },
-    {
-        label: 'Tags',
-        icon: <HashtagIcon/>,
-        path: '/pages/browse/tags',
-    },
-    {
-        label: 'Developers',
-        icon: <DevelopersIcon/>,
-        path: '/pages/browse/developers',
-    },
-    {
-        label: 'Publishers',
-        icon: <PublisherIcon/>,
-        path: '/pages/browse/publishers',
-    },
+	{
+		label: 'Platforms',
+		icon: <ControllerIcon/>,
+		path: '/pages/browse/platforms',
+	},
+	{
+		label: 'Stores',
+		icon: <DownloadIcon/>,
+		path: '/pages/browse/stores',
+	},
+	{
+		label: 'Genres',
+		icon: <GenreIcon/>,
+		path: '/pages/browse/genres',
+	},
+	{
+		label: 'Creators',
+		icon: <UserIcon/>,
+		path: '/pages/browse/creators',
+	},
+	{
+		label: 'Tags',
+		icon: <HashtagIcon/>,
+		path: '/pages/browse/tags',
+	},
+	{
+		label: 'Developers',
+		icon: <DevelopersIcon/>,
+		path: '/pages/browse/developers',
+	},
+	{
+		label: 'Publishers',
+		icon: <PublisherIcon/>,
+		path: '/pages/browse/publishers',
+	},
 ]
 
 export const sidebarGenres = [
-    {
-        label: 'Action',
-        icon: <ActionIcon/>,
-        path: '/pages/genres/action',
-    },
-    {
-        label: 'Strategy',
-        icon: <StrategyIcon/>,
-        path: '/pages/genres/strategy',
-    },
-    {
-        label: 'RPG',
-        icon: <RPGIcon/>,
-        path: '/pages/genres/rpg',
-    },
-    {
-        label: 'Shooter',
-        icon: <ShooterIcon/>,
-        path: '/pages/genres/shooter',
-    },
-    {
-        label: 'Adventure',
-        icon: <AdventureIcon/>,
-        path: '/pages/genres/adventure',
-    },
-    {
-        label: 'Puzzle',
-        icon: <PuzzleIcon/>,
-        path: '/pages/genres/puzzle',
-    },
-    {
-        label: 'Racing',
-        icon: <RacingIcon/>,
-        path: '/pages/genres/racing',
-    },
-    {
-        label: 'Sports',
-        icon: <SportsIcon/>,
-        path: '/pages/genres/sports',
-    },
+	{
+		label: 'Action',
+		icon: <ActionIcon/>,
+		path: '/pages/genres/action',
+	},
+	{
+		label: 'Strategy',
+		icon: <StrategyIcon/>,
+		path: '/pages/genres/strategy',
+	},
+	{
+		label: 'RPG',
+		icon: <RPGIcon/>,
+		path: '/pages/genres/rpg',
+	},
+	{
+		label: 'Shooter',
+		icon: <ShooterIcon/>,
+		path: '/pages/genres/shooter',
+	},
+	{
+		label: 'Adventure',
+		icon: <AdventureIcon/>,
+		path: '/pages/genres/adventure',
+	},
+	{
+		label: 'Puzzle',
+		icon: <PuzzleIcon/>,
+		path: '/pages/genres/puzzle',
+	},
+	{
+		label: 'Racing',
+		icon: <RacingIcon/>,
+		path: '/pages/genres/racing',
+	},
+	{
+		label: 'Sports',
+		icon: <SportsIcon/>,
+		path: '/pages/genres/sports',
+	},
+	{
+		label: 'Horror',
+		icon: <GenreIcon/>,
+		path: '/pages/genres/horror',
+	},
 ]
