@@ -25,7 +25,6 @@ const CardGrid = ({url}) => {
                 return [...prevState, ...filteredGames];
             });
 
-            console.log(data.results);
         } catch (error) {
             console.error('Error fetching games:', error);
             await getGames()

@@ -3,6 +3,7 @@ import styledGlobal from "@/styles/pages/global.module.css";
 
 export function LoadMore(props) {
 	const createRipple = (event) => {
+
 		const button = event.currentTarget;
 
 		const existingRipple = button.querySelector('.ripple-effect');
@@ -18,6 +19,7 @@ export function LoadMore(props) {
 		ripple.style.left = `${event.clientX - rect.left - size / 2}px`;
 		ripple.style.top = `${event.clientY - rect.top - size / 2}px`;
 		button.appendChild(ripple);
+
 	};
 
 	return (

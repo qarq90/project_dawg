@@ -5,24 +5,24 @@ import {profileTabs} from "@/lib/profileObj.js";
 
 const Nav = () => {
 
-    const currentPage = usePathname()
+	const currentPage = usePathname()
 
-    return (
-        <div className={styledNav.headerWrapper}>
-            <div className={styledNav.headerItem}>
-                <div className={styledNav.authBtnGroup}>
-                    {profileTabs.map((link, index) => (
-                        <Link
-                            key={index}
-                            href={link.href}
-                            className={link.href === currentPage ? styledNav.currentLink : ''}
-                        >
-                            {link.label}
-                        </Link>
-                    ))}
-                </div>
-            </div>
-        </div>
-    )
+	return (
+		<div className={styledNav.headerWrapper}>
+			<div className={styledNav.headerItem}>
+				<div className={styledNav.authBtnGroup}>
+					{profileTabs.map((link, index) => (
+						<Link
+							key={index}
+							href={link.href}
+							className={link.href === currentPage ? styledNav.currentLink : ''}
+						>
+							{link.label}
+						</Link>
+					))}
+				</div>
+			</div>
+		</div>
+	)
 }
 export default Nav

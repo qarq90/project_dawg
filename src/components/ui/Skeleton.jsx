@@ -130,13 +130,13 @@ export const SkeletonTrailer = () => {
 }
 
 export const SkeletonBanner = () => {
-	return(
+	return (
 		<div className={styledSkeleton.skeletonBanner}></div>
 	)
 }
 
 export const SkeletonGridImage = () => {
-	return(
+	return (
 		<div className={styledSkeleton.skeletonImageGridContainer}>
 			<div className={styledSkeleton.skeletonImageGrid}></div>
 			<div className={styledSkeleton.skeletonImageGrid}></div>

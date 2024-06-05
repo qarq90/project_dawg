@@ -23,6 +23,6 @@ export default function WishlistPage() {
     }, [])
     const url = '/api/pages/post/profile/wishlist'
     return (
-        <ProfileTabGrid url={url} type={"Wishlist"}/>
+        <ProfileTabGrid url={url} type={"Wishlisted"}/>
     )
 }
