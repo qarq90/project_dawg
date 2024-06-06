@@ -9,6 +9,7 @@ import {WindowsIcon} from "../../../../../public/icon/WindowsIcon.jsx";
 import {AppleIcon} from "../../../../../public/icon/AppleIcon.jsx";
 import useGameStore from "@/userStore/gameStore.js";
 import {SkeletonGameNav, SkeletonGridFour, SkeletonGridOne, SkeletonTitle} from "@/components/ui/Skeleton.jsx";
+import {PCIcon} from "../../../../../public/icon/PCIcon.jsx";
 
 export default function Requirements() {
 
@@ -77,7 +78,7 @@ export default function Requirements() {
 							</div>
 						</div>
 						<div>
-							<h3><WindowsIcon/> <AppleIcon/> PC Requirements</h3>
+							<h3><PCIcon/> PC Requirements</h3>
 							<div className={styledDetails.attributeValue}>
 				                <span>
 				                  <a href={`https://www.pcgamebenchmark.com/${gameName}-system-requirements`}

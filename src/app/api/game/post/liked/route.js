@@ -6,8 +6,6 @@ export const POST = async (request) => {
     try {
         const {email_id, game_id, game_name} = await request.json();
 
-        console.log("Received request data:", {email_id, game_id, game_name});
-
         await connect();
 
         const isGameDocument = await Games.findOne({email_id});

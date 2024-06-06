@@ -50,16 +50,22 @@ export default function AboutGame({params}) {
 		if (!gameDetails) {
 			async function fetchGameAbout() {
 				try {
+
 					const response = await fetch(`https://api.rawg.io/api/games/${game}?key=${apiKey}`);
 					if (!response.ok) {
 						throw new Error('Failed to fetch game details');
 					}
+
 					const data = await response.json();
+
 					setGameDetails(data);
-					console.log(data);
 					setGameId(data.id);
+
 					const desc = data.description_raw;
 					const filteredDescArray = splitTextIntoSentences(desc);
+
+					console.log(data)
+
 					setGameDescription(filteredDescArray);
 				} catch (error) {
 					console.error('Error fetching game details:', error);
@@ -78,6 +84,8 @@ export default function AboutGame({params}) {
 					}
 					const data = await response.json();
 					setGameTrailer(data);
+					console.log("Trailer:")
+					console.log(data)
 				} catch (error) {
 					console.error('Error fetching game trailer:', error);
 				}

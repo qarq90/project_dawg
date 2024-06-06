@@ -119,15 +119,30 @@
 }
 
 .hoveredCardItemTitle {
-    color: hsla(0,0%,100%,.4);
+    color: hsla(0, 0%, 100%, .4);
 }
 
 .hoveredCardItem a {
     color: white;
     transition: all .3s ease;
-    border-bottom: 1px solid rgba(255,255,255,.4);
+    border-bottom: 1px solid rgba(255, 255, 255, .4);
 }
 
 .hoveredCardItem a:hover {
     color: #797979;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }

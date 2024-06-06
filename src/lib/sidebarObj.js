@@ -25,6 +25,7 @@ import {UserIcon} from "../../public/icon/UserIcon"
 import {HashtagIcon} from "../../public/icon/HashtagIcon"
 import {DevelopersIcon} from "../../public/icon/DevelopersIcon"
 import {PublisherIcon} from "../../public/icon/PublisherIcon"
+import {PCIcon} from "../../public/icon/PCIcon.jsx";
 
 export const sidebarNewReleases = [
 	{
@@ -65,7 +66,7 @@ export const sidebarTop = [
 export const sidebarPlatforms = [
 	{
 		label: 'PC',
-		icon: <WindowsIcon/>,
+		icon: <PCIcon/>,
 		path: '/pages/platforms/pc',
 	},
 	{

@@ -90,7 +90,6 @@ export default function ScreenShot() {
 											<img src={gameDetails.background_image_additional} alt=""/>
 											<h3>A Still from {gameDetails.name_original}</h3>
 										</> :
-										// <SkeletonBanner/>
 									<></>
 								}
 							</div>
