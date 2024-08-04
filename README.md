@@ -22,18 +22,6 @@ To get started with Dawg, follow these steps:
 5. Run the development server using `npm run dev`.
 6. Start exploring Dawg and enhancing your gaming experience!
 
-## Technologies Used
-
-- Next.js
-- MongoDB
-- React
-- Node.js
-- Express
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit pull requests or open issues for any improvements or features you'd like to see in Dawg.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
