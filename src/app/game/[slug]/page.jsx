@@ -129,21 +129,21 @@ export default function AboutGame({params}) {
 						<div className={styledDetails.gameDesc}>
 							<p>{gameDescription[0] + gameDescription[1] + gameDescription[2] + gameDescription[3]}</p>
 						</div>
-						{
-							gameTrailer === null ?
-								<div className={styledDetails.trailer + ' ' + styledDetails.attributeValue}
-								     style={{marginLeft: "2rem"}}>
-					                  <span
-						                  className={styledDetails.gameDescription}>NO TRAILER YET
-					                  </span>
-								</div> :
-								<>
-									<div>
-										<video controls width="95%" height="600"
-										       src={gameTrailer?.results[0]?.data?.max}/>
-									</div>
-								</>
-						}
+						{/*{*/}
+						{/*	gameTrailer === null ?*/}
+						{/*		<div className={styledDetails.trailer + ' ' + styledDetails.attributeValue}*/}
+						{/*		     style={{marginLeft: "2rem"}}>*/}
+					    {/*              <span*/}
+						{/*                  className={styledDetails.gameDescription}>NO TRAILER YET*/}
+					    {/*              </span>*/}
+						{/*		</div> :*/}
+						{/*		<>*/}
+						{/*			<div>*/}
+						{/*				<video controls width="95%" height="600"*/}
+						{/*				       src={gameTrailer?.results[0]?.data?.max}/>*/}
+						{/*			</div>*/}
+						{/*		</>*/}
+						{/*}*/}
 						{gameDescription && (
 							<div className={styledDetails.gameDesc}>
 								{gameDescription.slice(4, 7).map((sentence, index) => (
